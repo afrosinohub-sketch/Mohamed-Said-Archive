@@ -1,1674 +1,748 @@
 <!DOCTYPE html>
-<html lang="sw" dir="ltr">
+<html lang="en" class="scroll-smooth">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mohamed Said — Digital Historical Archive</title>
-<meta name="description" content="Kituo cha kuhifadhi historia, nyaraka, vitabu, picha na kumbukumbu za harakati za uhuru wa Tanganyika. Miaka 40+ ya utafiti.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-<style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohamed Said Digital Historical Archive | Neural Intelligence</title>
 
-/* ═══════════════════════════════════════════════════════════════
-   MOHAMED SAID — DIGITAL HISTORICAL ARCHIVE (Unified v1.0)
-   ═══════════════════════════════════════════════════════════════ */
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
-/* Reset */
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-body { min-height: 100svh; line-height: 1.6; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
-img, picture, video, canvas, svg { display: block; max-width: 100%; height: auto; }
-button { cursor: pointer; background: none; border: none; font: inherit; color: inherit; }
-a { text-decoration: none; color: inherit; }
-ul, ol { list-style: none; }
-h1, h2, h3, h4 { text-wrap: balance; overflow-wrap: break-word; }
-p { text-wrap: pretty; overflow-wrap: break-word; }
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
 
-/* Tokens */
-:root {
-  --c-ink: #0a0e1a;
-  --c-ink-mid: #121829;
-  --c-ink-soft: #1a2035;
-  --c-parchment: #e8e0d0;
-  --c-parchment-2: #f5f1e8;
-  --c-gold: #c9a227;
-  --c-gold-light: #e8d5a3;
-  --c-gold-dim: #a08020;
-  --c-copper: #8b6239;
-  --c-bone: #b8b0a0;
-  --c-whats: #25D366;
-  --c-whats-dark: #1aab54;
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-  --ff-display: 'Cormorant Garamond', Georgia, serif;
-  --ff-body: 'DM Sans', system-ui, sans-serif;
-  --ff-mono: 'Space Mono', monospace;
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        midnight: '#050C16',
+                        deepblue: '#0A1828',
+                        gold: '#D4AF37',
+                        neongold: '#F4C430',
+                        ivory: '#FAF8F2',
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Space Grotesk', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
 
-  --fs-xs: clamp(0.64rem, 0.05vw + 0.63rem, 0.68rem);
-  --fs-sm: clamp(0.75rem, 0.1vw + 0.73rem, 0.85rem);
-  --fs-base: clamp(0.88rem, 0.15vw + 0.84rem, 1rem);
-  --fs-md: clamp(1.05rem, 0.25vw + 0.98rem, 1.25rem);
-  --fs-lg: clamp(1.25rem, 0.4vw + 1.15rem, 1.56rem);
-  --fs-xl: clamp(1.5rem, 0.6vw + 1.35rem, 1.95rem);
-  --fs-2xl: clamp(1.8rem, 1vw + 1.55rem, 2.44rem);
-  --fs-3xl: clamp(2.2rem, 1.5vw + 1.8rem, 3.05rem);
-  --fs-4xl: clamp(2.8rem, 2.5vw + 2.1rem, 4.2rem);
-  --fs-5xl: clamp(3.5rem, 4vw + 2.4rem, 6.4rem);
+    <style>
+        :root {
+            --midnight: #050C16;
+            --deepblue: #0A1828;
+            --gold: #D4AF37;
+            --neongold: #F4C430;
+            --ivory: #FAF8F2;
+        }
 
-  --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem;
-  --space-5: 1.25rem; --space-6: 1.5rem; --space-8: 2rem; --space-10: 2.5rem;
-  --space-12: 3rem; --space-16: 4rem; --space-20: 5rem; --space-24: 6rem;
+        html { scroll-padding-top: 80px; }
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: var(--midnight);
+            color: var(--ivory);
+            cursor: none;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
 
-  --container-max: 1300px;
-  --container-pad: clamp(1rem, 3vw, 2rem);
-  --radius-sm: 2px; --radius-md: 6px; --radius-lg: 12px; --radius-full: 9999px;
+        @media (max-width: 768px) {
+            body { cursor: auto; }
+            .cursor-dot, .cursor-outline { display: none !important; }
+        }
 
-  --ease-silk: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-arch: cubic-bezier(0.77, 0, 0.175, 1);
-  --duration-fast: 300ms; --duration-normal: 500ms; --duration-slow: 900ms;
+        /* Custom Cursor */
+        .cursor-dot { position: fixed; top: 0; left: 0; width: 8px; height: 8px; background: var(--gold); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); mix-blend-mode: difference; }
+        .cursor-outline { position: fixed; top: 0; left: 0; width: 40px; height: 40px; border: 1px solid rgba(212, 175, 55, 0.5); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%, -50%); transition: all 0.2s ease-out; }
+        .cursor-outline.hover-grow { width: 60px; height: 60px; background: rgba(212, 175, 55, 0.1); border-color: var(--gold); }
 
-  --z-header: 999; --z-modal: 9500; --z-preloader: 10001;
-}
+        /* Neural Network Canvas */
+        #neural-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; opacity: 0.4; }
 
-/* Base */
-body {
-  font-family: var(--ff-body);
-  font-size: var(--fs-base);
-  background: var(--c-ink);
-  color: var(--c-parchment);
-  overflow-x: clip;
-}
-::selection { background: var(--c-gold); color: var(--c-ink); }
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--c-ink); }
-::-webkit-scrollbar-thumb { background: var(--c-gold); border-radius: var(--radius-full); }
-body::before {
-  content: ''; position: fixed; inset: 0; z-index: 9998; pointer-events: none;
-  opacity: 0.025;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-repeat: repeat; background-size: 256px; mix-blend-mode: overlay;
-}
-:focus-visible { outline: 2px solid var(--c-gold); outline-offset: 4px; border-radius: var(--radius-sm); }
+        /* Glassmorphism */
+        .glass-panel {
+            background: rgba(10, 24, 40, 0.4);
+            backdrop-filter: blur(24px) saturate(180%);
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .glass-nav {
+            background: rgba(5, 12, 22, 0.6);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+        }
 
-/* Layout */
-.container { max-width: var(--container-max); margin-inline: auto; padding-inline: var(--container-pad); }
-section { position: relative; }
-.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+        /* Holographic Text */
+        .holo-text {
+            background: linear-gradient(90deg, var(--gold), var(--ivory), var(--gold));
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 4s linear infinite;
+        }
+        @keyframes shine { to { background-position: 200% center; } }
 
-/* Skip Link */
-.skip-link { position: absolute; top: -100%; left: var(--space-4); z-index: calc(var(--z-preloader) + 1); background: var(--c-gold); color: var(--c-ink); padding: var(--space-3) var(--space-6); font-family: var(--ff-mono); font-size: var(--fs-xs); font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; border-radius: var(--radius-md); transition: top var(--duration-fast) var(--ease-silk); }
-.skip-link:focus { top: var(--space-4); }
+        /* Reveal Animations */
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .reveal-stagger > * { opacity: 0; transform: translateY(20px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal-stagger.active > * { opacity: 1; transform: translateY(0); }
 
-/* Progress Bar */
-#progress-bar { position: fixed; top: 0; left: 0; height: 3px; width: 0%; z-index: var(--z-header); background: linear-gradient(90deg, var(--c-copper), var(--c-gold), var(--c-gold-light)); box-shadow: 0 0 12px rgba(201,162,39,0.4); transform-origin: left; transition: width 0.1s linear; }
+        /* 3D Tilt Card */
+        .tilt-card { transform-style: preserve-3d; transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1); will-change: transform; }
 
-/* Preloader */
-#preloader { position: fixed; inset: 0; z-index: var(--z-preloader); background: var(--c-ink); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--space-8); transition: opacity var(--duration-slow) var(--ease-silk), visibility var(--duration-slow) var(--ease-silk); }
-#preloader[hidden] { opacity: 0; visibility: hidden; pointer-events: none; }
-.pre-emblem { position: relative; width: 80px; height: 80px; }
-.pre-emblem svg { width: 100%; height: 100%; animation: emblem-spin 2.4s linear infinite; }
-@keyframes emblem-spin { to { transform: rotate(360deg); } }
-.pre-emblem-inner { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
-.pre-emblem-inner span { font-family: var(--ff-display); font-size: 1.8rem; color: var(--c-gold); font-weight: 300; }
-.pre-line { width: 200px; height: 1px; background: linear-gradient(90deg, transparent, var(--c-gold), transparent); animation: pre-sweep 1.8s var(--ease-arch) infinite; }
-@keyframes pre-sweep { 0% { transform: scaleX(0); opacity: 0; } 50% { transform: scaleX(1); opacity: 1; } 100% { transform: scaleX(0); opacity: 0; } }
-.pre-text { font-family: var(--ff-mono); font-size: var(--fs-xs); letter-spacing: 0.35em; color: var(--c-bone); text-transform: uppercase; animation: pre-blink 1.4s ease-in-out infinite; }
-@keyframes pre-blink { 0%,100%{opacity:0.3} 50%{opacity:1} }
+        /* Command Palette */
+        .cmdk-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.7); backdrop-filter: blur(8px); z-index: 100; display: flex; align-items: flex-start; justify-content: center; padding-top: 20vh; opacity: 0; pointer-events: none; transition: opacity 0.2s; }
+        .cmdk-overlay.active { opacity: 1; pointer-events: auto; }
 
-/* Custom Cursor */
-.cursor-dot { position: fixed; width: 6px; height: 6px; background: var(--c-gold); border-radius: var(--radius-full); pointer-events: none; z-index: 10000; transform: translate(-50%, -50%); }
-.cursor-ring { position: fixed; width: 36px; height: 36px; border: 1px solid var(--c-gold); border-radius: var(--radius-full); pointer-events: none; z-index: 10000; transform: translate(-50%, -50%); transition: width 0.3s, height 0.3s, border-color 0.3s, background 0.3s; }
-.cursor-ring.expand { width: 56px; height: 56px; background: rgba(201,162,39,0.08); border-color: var(--c-gold-light); }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--midnight); }
+        ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 4px; }
 
-/* Header */
-#header { position: fixed; top: 0; left: 0; right: 0; z-index: var(--z-header); padding-block: var(--space-6); transition: padding-block var(--duration-fast), background var(--duration-fast), backdrop-filter var(--duration-fast); border-bottom: 1px solid transparent; }
-#header.scrolled { padding-block: var(--space-3); background: rgba(10,14,26,0.88); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); border-bottom-color: rgba(201,162,39,0.15); }
-.header-inner { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); }
-
-/* Logo */
-.logo-link { display: flex; align-items: center; gap: var(--space-3); transition: transform var(--duration-fast) var(--ease-silk); }
-.logo-link:hover { transform: scale(1.02); }
-.logo-seal { width: 48px; height: 48px; border-radius: var(--radius-full); border: 1.5px solid var(--c-gold); overflow: hidden; position: relative; flex-shrink: 0; transition: box-shadow var(--duration-fast); }
-.logo-link:hover .logo-seal { box-shadow: 0 0 0 4px rgba(201,162,39,0.15); }
-.logo-seal img { width: 100%; height: 100%; object-fit: cover; }
-.logo-name { font-family: var(--ff-display); font-size: var(--fs-md); font-weight: 600; color: var(--c-parchment-2); line-height: 1.1; }
-.logo-sub { font-family: var(--ff-mono); font-size: var(--fs-xs); color: var(--c-gold); letter-spacing: 0.22em; text-transform: uppercase; margin-top: 2px; display: block; }
-
-/* Navigation */
-#navbar ul { display: flex; gap: clamp(0.6rem, 1.8vw, 1.6rem); align-items: center; flex-wrap: wrap; justify-content: flex-end; }
-#navbar a { font-size: var(--fs-xs); font-weight: 500; letter-spacing: 0.06em; color: var(--c-bone); text-transform: uppercase; position: relative; padding-bottom: 4px; transition: color 150ms; white-space: nowrap; }
-#navbar a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1px; background: var(--c-gold); transition: width var(--duration-normal) var(--ease-silk); }
-#navbar a:hover, #navbar a[aria-current="page"] { color: var(--c-parchment-2); }
-#navbar a:hover::after, #navbar a[aria-current="page"]::after { width: 100%; }
-#menuToggle { display: none; background: transparent; border: 1px solid rgba(201,162,39,0.3); color: var(--c-parchment); width: 42px; height: 42px; border-radius: var(--radius-md); font-size: var(--fs-base); transition: all var(--duration-fast); }
-#menuToggle:hover { background: var(--c-gold); color: var(--c-ink); border-color: var(--c-gold); }
-
-/* Hero */
-.hero { min-height: 100svh; display: grid; grid-template-columns: 1fr 1fr; position: relative; overflow: clip; isolation: isolate; }
-.hero-image-panel { position: relative; overflow: clip; }
-.hero-image-panel img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(25%) sepia(15%); transform: scale(1.08); transition: transform 12s var(--ease-silk), filter 1s; will-change: transform; }
-.hero-image-panel.loaded img { transform: scale(1); }
-.hero-image-panel::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to right, transparent 60%, var(--c-ink) 100%), linear-gradient(to bottom, rgba(10,14,26,0.4) 0%, transparent 40%); pointer-events: none; }
-.hero-vert-label { position: absolute; bottom: 48px; left: 32px; z-index: 2; writing-mode: vertical-rl; text-orientation: mixed; transform: rotate(180deg); font-family: var(--ff-mono); font-size: var(--fs-xs); letter-spacing: 0.28em; color: var(--c-gold); text-transform: uppercase; opacity: 0.7; }
-.hero-doc-card { position: absolute; top: 50%; right: -20px; transform: translateY(-50%); z-index: 3; background: rgba(10,14,26,0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(201,162,39,0.25); border-left: 3px solid var(--c-gold); padding: var(--space-5) var(--space-6); width: min(220px, 18cqw); border-radius: var(--radius-sm); opacity: 0; animation: doc-slide-in 1s 1.8s var(--ease-silk) forwards; }
-@keyframes doc-slide-in { from { opacity: 0; transform: translateY(-50%) translateX(30px); } to { opacity: 1; transform: translateY(-50%) translateX(0); } }
-.doc-label { font-family: var(--ff-mono); font-size: var(--fs-xs); color: var(--c-gold); letter-spacing: 0.2em; text-transform: uppercase; display: block; margin-bottom: var(--space-3); }
-.doc-stat { font-family: var(--ff-display); font-size: var(--fs-3xl); color: var(--c-parchment-2); line-height: 1; font-weight: 300; }
-.doc-stat span { font-size: var(--fs-md); color: var(--c-gold); font-weight: 500; }
-.doc-desc { font-size: var(--fs-sm); color: var(--c-bone); margin-top: var(--space-2); line-height: 1.5; }
-
-.hero-content { display: flex; flex-direction: column; justify-content: center; padding: 120px 72px 80px 64px; position: relative; }
-.hero-eyebrow { display: flex; align-items: center; gap: var(--space-4); margin-bottom: var(--space-10); opacity: 0; animation: fade-up 0.8s 0.5s var(--ease-silk) forwards; }
-.eyebrow-line { width: 40px; height: 1px; background: var(--c-gold); flex-shrink: 0; }
-.eyebrow-text { font-family: var(--ff-mono); font-size: var(--fs-xs); color: var(--c-gold); letter-spacing: 0.25em; text-transform: uppercase; }
-.hero-headline { font-family: var(--ff-display); font-weight: 300; font-size: var(--fs-5xl); line-height: 1.02; color: var(--c-parchment-2); opacity: 0; animation: fade-up 0.9s 0.75s var(--ease-silk) forwards; }
-.hero-headline em { font-style: italic; color: var(--c-gold); display: block; font-size: 0.65em; margin-top: 0.15em; }
-.hero-caption { font-size: var(--fs-base); color: var(--c-bone); line-height: 1.8; max-width: 44ch; margin-top: var(--space-8); opacity: 0; animation: fade-up 0.9s 1s var(--ease-silk) forwards; }
-.hero-quote { border-left: 3px solid var(--c-gold); padding-left: var(--space-5); margin-top: var(--space-8); font-style: italic; color: var(--c-gold-light); font-size: var(--fs-md); font-family: var(--ff-display); opacity: 0; animation: fade-up 0.9s 1.1s var(--ease-silk) forwards; }
-.hero-quote cite { display: block; margin-top: var(--space-2); font-style: normal; font-weight: 600; color: var(--c-parchment-2); font-size: var(--fs-sm); font-family: var(--ff-body); }
-.hero-cta-group { display: flex; align-items: center; gap: var(--space-6); margin-top: var(--space-12); opacity: 0; animation: fade-up 0.9s 1.2s var(--ease-silk) forwards; flex-wrap: wrap; }
-
-@keyframes fade-up { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-
-/* Buttons */
-.btn-arch { display: inline-flex; align-items: center; gap: var(--space-3); font-family: var(--ff-body); font-size: var(--fs-xs); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; border: none; transition: all var(--duration-fast) var(--ease-silk); border-radius: var(--radius-sm); position: relative; overflow: clip; isolation: isolate; white-space: nowrap; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
-.btn-arch::before { content: ''; position: absolute; inset: 0; background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.2) 50%, transparent 60%); background-size: 200% 100%; background-position: 100% 0; transition: background-position 0.6s; z-index: -1; }
-.btn-arch:hover::before { background-position: -100% 0; }
-.btn-arch-primary { background: var(--c-gold); color: var(--c-ink); padding: var(--space-4) var(--space-8); }
-.btn-arch-primary:hover { background: var(--c-gold-light); box-shadow: 0 12px 32px rgba(201,162,39,0.25); transform: translateY(-2px); }
-.btn-arch-ghost { background: transparent; color: var(--c-bone); padding: 15px 32px; border: 1px solid rgba(232,224,208,0.25); }
-.btn-arch-ghost:hover { border-color: var(--c-gold); color: var(--c-parchment-2); background: rgba(201,162,39,0.05); }
-
-.hero-divider { margin-top: var(--space-16); border-top: 1px solid rgba(201,162,39,0.15); padding-top: var(--space-10); display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-5); opacity: 0; animation: fade-up 0.9s 1.4s var(--ease-silk) forwards; }
-.hero-stat-num { font-family: var(--ff-display); font-size: var(--fs-3xl); font-weight: 300; color: var(--c-gold); line-height: 1; font-variant-numeric: tabular-nums; }
-.hero-stat-label { font-family: var(--ff-mono); font-size: var(--fs-xs); letter-spacing: 0.2em; color: var(--c-bone); text-transform: uppercase; margin-top: var(--space-2); display: block; }
-
-.hero-ticker { position: absolute; bottom: 0; left: 0; right: 0; border-top: 1px solid rgba(201,162,39,0.12); overflow: clip; height: 44px; background: rgba(10,14,26,0.65); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); z-index: 10; }
-.ticker-track { display: flex; align-items: center; height: 100%; animation: ticker-scroll 30s linear infinite; white-space: nowrap; width: max-content; }
-.ticker-track:hover, .ticker-track:focus-within { animation-play-state: paused; }
-@keyframes ticker-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-.ticker-item { display: inline-flex; align-items: center; gap: var(--space-4); padding-inline: var(--space-8); font-family: var(--ff-mono); font-size: var(--fs-xs); color: var(--c-bone); letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.7; }
-.t-dot { width: 4px; height: 4px; border-radius: var(--radius-full); background: var(--c-gold); flex-shrink: 0; }
-
-/* Section Utilities */
-.s-padding { padding-block: clamp(5rem, 8vw, 8rem); }
-.section-eyebrow { display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-5); }
-.s-eye-line { width: 32px; height: 1px; background: var(--c-gold); flex-shrink: 0; }
-.s-eye-text { font-family: var(--ff-mono); font-size: var(--fs-xs); color: var(--c-gold); letter-spacing: 0.25em; text-transform: uppercase; }
-.section-title { font-family: var(--ff-display); font-weight: 300; font-size: var(--fs-4xl); line-height: 1.1; color: var(--c-parchment-2); text-wrap: balance; }
-.section-title em { font-style: italic; color: var(--c-gold); }
-.section-body { font-size: var(--fs-base); color: var(--c-bone); line-height: 1.85; max-width: 52ch; }
-
-/* Video Section */
-.video-section { background: #080c18; }
-.video-wrapper { position: relative; max-width: 900px; margin: 0 auto; border-radius: var(--radius-sm); overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.4); border: 1px solid rgba(201,162,39,0.15); }
-.video-wrapper video { width: 100%; height: auto; display: block; }
-.video-caption { text-align: center; margin-top: var(--space-8); padding: var(--space-6) var(--space-8); background: rgba(26,32,53,0.6); border: 1px solid rgba(201,162,39,0.1); border-radius: var(--radius-sm); max-width: 700px; margin-left: auto; margin-right: auto; }
-.video-caption h3 { font-family: var(--ff-display); color: var(--c-gold); margin-bottom: var(--space-2); font-size: var(--fs-md); font-weight: 600; }
-.video-caption p { color: var(--c-bone); font-size: var(--fs-sm); line-height: 1.7; }
-
-/* About */
-.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(3rem, 6vw, 6rem); align-items: center; }
-.about-image-wrap { position: relative; }
-.about-image-wrap::before, .about-image-wrap::after { content: ''; position: absolute; border: 1px solid rgba(201,162,39,0.3); border-radius: var(--radius-sm); pointer-events: none; }
-.about-image-wrap::before { top: -12px; right: -12px; width: 80px; height: 80px; border-bottom: none; border-left: none; }
-.about-image-wrap::after { bottom: -12px; left: -12px; width: 80px; height: 80px; border-top: none; border-right: none; }
-.about-img { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: var(--radius-sm); filter: grayscale(20%) sepia(10%); transition: filter var(--duration-slow); }
-.about-image-wrap:hover .about-img { filter: grayscale(0%) sepia(0%); }
-.about-stamp { position: absolute; bottom: -20px; right: -20px; background: var(--c-gold); color: var(--c-ink); font-family: var(--ff-mono); font-size: var(--fs-xs); letter-spacing: 0.15em; text-transform: uppercase; padding: var(--space-2) var(--space-4); border-radius: var(--radius-sm); font-weight: 700; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
-.about-text-body { font-size: var(--fs-base); color: var(--c-bone); line-height: 1.9; margin-top: var(--space-8); }
-.about-text-body p + p { margin-top: var(--space-4); }
-.about-achievement-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-5); margin-top: var(--space-10); }
-.about-achievement-item { display: flex; gap: var(--space-3); align-items: flex-start; }
-.about-ach-icon { color: var(--c-gold); font-size: var(--fs-sm); margin-top: 4px; flex-shrink: 0; }
-.about-ach-text { font-family: var(--ff-display); font-size: var(--fs-base); font-weight: 600; color: var(--c-parchment-2); line-height: 1.4; }
-
-/* Achievements Section */
-.achievements-section { background: linear-gradient(135deg, #080c18 0%, #121829 100%); }
-.achievements-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: var(--space-6); margin-top: var(--space-12); }
-.achievement-card { background: rgba(26,32,53,0.5); border: 1px solid rgba(201,162,39,0.12); padding: var(--space-8) var(--space-6); border-radius: var(--radius-sm); text-align: center; transition: all var(--duration-fast) var(--ease-silk); backdrop-filter: blur(10px); }
-.achievement-card:hover { background: rgba(201,162,39,0.08); border-color: rgba(201,162,39,0.3); transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.2); }
-.achievement-icon { width: 56px; height: 56px; background: var(--c-gold); border-radius: var(--radius-full); display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-5); color: var(--c-ink); font-size: var(--fs-lg); }
-.achievement-card h3 { font-family: var(--ff-display); color: var(--c-gold-light); margin-bottom: var(--space-3); font-size: var(--fs-base); font-weight: 600; }
-.achievement-card p { color: var(--c-bone); font-size: var(--fs-sm); line-height: 1.7; }
-
-/* Documents */
-.docs-bg { background: #080c18; }
-.docs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6); margin-top: var(--space-12); }
-.doc-card { background: rgba(26,32,53,0.6); border: 1px solid rgba(201,162,39,0.12); border-radius: var(--radius-sm); padding: var(--space-8); position: relative; overflow: clip; transition: all var(--duration-fast) var(--ease-silk); display: flex; flex-direction: column; justify-content: space-between; min-height: 240px; text-decoration: none; color: inherit; }
-.doc-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--c-gold); transform: scaleY(0); transform-origin: top; transition: transform var(--duration-normal) var(--ease-silk); }
-.doc-card:hover, .doc-card:focus-visible { border-color: rgba(201,162,39,0.3); background: rgba(30,38,63,0.8); box-shadow: 0 20px 40px rgba(0,0,0,0.2); translate: 0 -4px; }
-.doc-card:hover::before, .doc-card:focus-visible::before { transform: scaleY(1); }
-.doc-head { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: var(--space-6); }
-.doc-icon { font-size: var(--fs-xl); color: var(--c-gold); }
-.doc-badge { font-family: var(--ff-mono); font-size: var(--fs-xs); color: var(--c-bone); letter-spacing: 0.2em; text-transform: uppercase; border: 1px solid rgba(201,162,39,0.2); padding: 4px 8px; border-radius: var(--radius-sm); }
-.doc-title { font-family: var(--ff-display); font-size: var(--fs-md); font-weight: 600; color: var(--c-parchment-2); line-height: 1.3; margin-bottom: var(--space-4); }
-.doc-download { display: inline-flex; align-items: center; gap: var(--space-2); font-family: var(--ff-mono); font-size: var(--fs-xs); color: var(--c-gold); letter-spacing: 0.15em; text-transform: uppercase; transition: gap var(--duration-fast); }
-.doc-card:hover .doc-download { gap: var(--space-3); }
-
-/* Featured Publication */
-.publication-section { background: #080c18; }
-.publication-card { display: grid; grid-template-columns: 320px 1fr; gap: var(--space-10); background: rgba(26,32,53,0.5); border-radius: var(--radius-sm); overflow: hidden; border: 1px solid rgba(201,162,39,0.1); transition: all var(--duration-fast) var(--ease-silk); }
-.publication-card:hover { border-color: rgba(201,162,39,0.25); box-shadow: 0 25px 50px rgba(0,0,0,0.25); transform: translateY(-4px); }
-.publication-cover { background: var(--c-ink); display: flex; align-items: center; justify-content: center; padding: var(--space-8); position: relative; overflow: hidden; }
-.book-mockup { position: relative; z-index: 1; background: linear-gradient(135deg, #f5f0e6 0%, #e8e0d0 100%); width: 200px; height: 280px; border-radius: 4px 16px 16px 4px; box-shadow: -6px 6px 20px rgba(0,0,0,0.4), inset 2px 0 5px rgba(255,255,255,0.3); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: var(--space-5); text-align: center; border-left: 8px solid var(--c-gold); }
-.book-mockup h4 { font-family: var(--ff-display); font-size: var(--fs-sm); color: var(--c-ink); margin-bottom: var(--space-2); line-height: 1.3; font-weight: 600; }
-.book-mockup .book-author { font-size: var(--fs-xs); color: #555; font-family: var(--ff-mono); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
-.publication-info { padding: var(--space-10) var(--space-8) var(--space-10) 0; display: flex; flex-direction: column; justify-content: center; }
-.publication-tag { display: inline-block; background: var(--c-gold); color: var(--c-ink); padding: var(--space-2) var(--space-4); border-radius: var(--radius-sm); font-family: var(--ff-mono); font-size: var(--fs-xs); font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: var(--space-4); width: fit-content; }
-.publication-info h3 { font-family: var(--ff-display); font-size: var(--fs-xl); color: var(--c-parchment-2); margin-bottom: var(--space-3); font-weight: 500; }
-.publication-info .subtitle { color: var(--c-gold); font-weight: 600; margin-bottom: var(--space-4); font-size: var(--fs-base); }
-.publication-info p { color: var(--c-bone); line-height: 1.8; margin-bottom: var(--space-6); }
-
-/* Books */
-.books-grid { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: var(--space-8); align-items: start; }
-.book-card { position: relative; }
-.book-cover-wrap { position: relative; overflow: clip; border-radius: var(--radius-sm); border: 1px solid rgba(201,162,39,0.1); }
-.book-cover-wrap img { width: 100%; aspect-ratio: 3/4; object-fit: cover; filter: grayscale(15%) sepia(10%); transition: transform var(--duration-slow), filter var(--duration-normal); }
-.book-card:hover .book-cover-wrap img { transform: scale(1.06); filter: none; }
-.book-cover-wrap::after { content: attr(data-label); position: absolute; inset: 0; background: rgba(10,14,26,0.75); display: flex; align-items: center; justify-content: center; font-family: var(--ff-mono); font-size: var(--fs-xs); letter-spacing: 0.3em; color: var(--c-gold); opacity: 0; transition: opacity var(--duration-fast); }
-.book-card:hover .book-cover-wrap::after { opacity: 1; }
-.book-meta { padding: var(--space-5) var(--space-1) 0; }
-.book-category { font-family: var(--ff-mono); font-size: var(--fs-xs); color: var(--c-gold); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: var(--space-2); display: block; }
-.book-title { font-family: var(--ff-display); font-size: var(--fs-md); font-weight: 500; color: var(--c-parchment-2); line-height: 1.3; margin-bottom: var(--space-2); }
-.book-author { font-size: var(--fs-sm); color: var(--c-bone); }
-
-/* Works Tabs */
-.works-tabs { display: flex; justify-content: center; gap: var(--space-3); margin-bottom: var(--space-10); flex-wrap: wrap; }
-.tab-btn { padding: var(--space-3) var(--space-6); border: 1px solid rgba(201,162,39,0.2); background: transparent; color: var(--c-bone); border-radius: var(--radius-sm); font-weight: 600; cursor: pointer; transition: all var(--duration-fast) var(--ease-silk); font-family: var(--ff-body); font-size: var(--fs-xs); letter-spacing: 0.08em; text-transform: uppercase; }
-.tab-btn.active, .tab-btn:hover { background: var(--c-gold); color: var(--c-ink); border-color: var(--c-gold); }
-.works-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-4); }
-.work-item { background: rgba(26,32,53,0.5); padding: var(--space-6); border-radius: var(--radius-sm); border-left: 3px solid var(--c-gold); transition: all var(--duration-fast) var(--ease-silk); display: flex; align-items: flex-start; gap: var(--space-4); }
-.work-item:hover { transform: translateX(8px); background: rgba(30,38,63,0.7); border-color: var(--c-gold); }
-.work-icon { color: var(--c-gold); font-size: var(--fs-md); margin-top: 4px; flex-shrink: 0; }
-.work-item h4 { font-size: var(--fs-base); color: var(--c-parchment-2); margin-bottom: var(--space-2); font-family: var(--ff-display); font-weight: 600; }
-.work-item p { color: var(--c-bone); font-size: var(--fs-sm); line-height: 1.6; }
-
-/* Topics */
-.topics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-6); }
-.topic-card { background: rgba(26,32,53,0.5); padding: var(--space-8) var(--space-6); border-radius: var(--radius-sm); text-align: center; transition: all var(--duration-fast) var(--ease-silk); border: 1px solid rgba(201,162,39,0.1); }
-.topic-card:hover { border-color: rgba(201,162,39,0.3); transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.2); }
-.topic-icon { width: 64px; height: 64px; background: var(--c-gold); border-radius: var(--radius-full); display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-5); color: var(--c-ink); font-size: var(--fs-lg); transition: all var(--duration-fast); }
-.topic-card:hover .topic-icon { background: var(--c-parchment-2); color: var(--c-ink); transform: rotateY(360deg); }
-.topic-card h3 { font-family: var(--ff-display); color: var(--c-parchment-2); margin-bottom: var(--space-3); font-size: var(--fs-base); font-weight: 600; }
-.topic-card p { color: var(--c-bone); font-size: var(--fs-sm); line-height: 1.65; }
-
-/* Digital Archive Initiative */
-.initiative-section { background: linear-gradient(135deg, #080c18 0%, #121829 100%); position: relative; overflow: hidden; }
-.initiative-section::before { content: ''; position: absolute; top: 0; right: 0; width: 400px; height: 400px; background: radial-gradient(circle, rgba(201,162,39,0.1) 0%, transparent 70%); }
-.initiative-content { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-16); align-items: center; position: relative; z-index: 1; }
-.initiative-text h2 { font-family: var(--ff-display); font-size: var(--fs-3xl); color: var(--c-gold-light); margin-bottom: var(--space-6); font-weight: 300; }
-.initiative-text p { color: var(--c-bone); margin-bottom: var(--space-5); font-size: var(--fs-base); line-height: 1.8; }
-.initiative-features { list-style: none; margin-top: var(--space-8); }
-.initiative-features li { display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-4); color: var(--c-gold-light); font-size: var(--fs-sm); }
-.initiative-features i { color: var(--c-gold); }
-.initiative-visual { display: flex; justify-content: center; align-items: center; }
-.archive-icon { width: 220px; height: 220px; background: rgba(201,162,39,0.05); border: 2px solid var(--c-gold); border-radius: var(--radius-lg); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--space-4); animation: pulse-gold 2s infinite; }
-@keyframes pulse-gold { 0%, 100% { box-shadow: 0 0 0 0 rgba(201,162,39,0.3); } 50% { box-shadow: 0 0 0 20px rgba(201,162,39,0); } }
-.archive-icon i { font-size: 3.5rem; color: var(--c-gold); }
-.archive-icon span { font-weight: 700; color: var(--c-gold-light); font-size: var(--fs-sm); font-family: var(--ff-mono); letter-spacing: 0.15em; text-transform: uppercase; }
-
-/* Gallery */
-.gallery-mosaic { display: grid; grid-template-columns: 1.5fr 1fr 1fr; grid-template-rows: auto auto; gap: var(--space-3); }
-.gal-item { position: relative; overflow: clip; border-radius: var(--radius-sm); cursor: zoom-in; background: var(--c-ink-soft); aspect-ratio: 1; }
-.gal-item:nth-child(1) { grid-row: 1 / 3; aspect-ratio: auto; }
-.gal-item img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(35%) sepia(12%); transition: transform var(--duration-slow), filter var(--duration-normal); }
-.gal-item:hover img { transform: scale(1.08); filter: grayscale(0%); }
-.gal-item::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,14,26,0.6) 0%, transparent 50%); z-index: 1; pointer-events: none; }
-.gal-item-label { position: absolute; bottom: var(--space-4); left: var(--space-4); z-index: 2; font-family: var(--ff-mono); font-size: var(--fs-xs); color: var(--c-parchment); letter-spacing: 0.15em; text-transform: uppercase; opacity: 0; transform: translateY(6px); transition: opacity var(--duration-fast), transform var(--duration-fast); }
-.gal-item:hover .gal-item-label { opacity: 0.8; transform: translateY(0); }
-
-.lightbox { display: none; position: fixed; inset: 0; z-index: var(--z-modal); background: rgba(10,14,26,0.96); backdrop-filter: blur(16px); align-items: center; justify-content: center; cursor: zoom-out; padding: var(--space-6); opacity: 0; transition: opacity var(--duration-normal); }
-.lightbox[open] { display: flex; opacity: 1; }
-.lightbox img { max-width: min(90vw, 1400px); max-height: 88vh; border-radius: var(--radius-sm); box-shadow: 0 40px 100px rgba(0,0,0,0.7); object-fit: contain; }
-.lightbox-close { position: absolute; top: var(--space-6); right: var(--space-6); width: 48px; height: 48px; border-radius: var(--radius-full); background: rgba(26,32,53,0.6); border: 1px solid rgba(201,162,39,0.2); color: var(--c-bone); font-size: var(--fs-lg); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all var(--duration-fast); z-index: 1; }
-.lightbox-close:hover { color: var(--c-gold); border-color: var(--c-gold); background: rgba(201,162,39,0.1); transform: rotate(90deg); }
-
-/* Tags */
-.tags-grid { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-10); }
-.tag { padding: var(--space-3) var(--space-5); background: rgba(26,32,53,0.6); border: 1px solid rgba(201,162,39,0.15); border-radius: var(--radius-sm); color: var(--c-parchment); font-size: var(--fs-sm); transition: all var(--duration-fast); display: inline-flex; align-items: center; gap: var(--space-2); cursor: default; user-select: none; }
-.tag i { color: var(--c-gold); font-size: 0.9em; }
-.tag:hover { background: rgba(201,162,39,0.1); border-color: var(--c-gold); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
-
-/* Timeline */
-.timeline-wrap { max-width: 860px; margin: var(--space-12) auto 0; position: relative; }
-.timeline-wrap::before { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 1px; background: linear-gradient(180deg, transparent, rgba(201,162,39,0.25) 5%, rgba(201,162,39,0.25) 95%, transparent); transform: translateX(-50%); }
-.t-item { display: grid; grid-template-columns: 1fr 60px 1fr; gap: 0; margin-bottom: var(--space-12); align-items: start; }
-.t-item:nth-child(even) .t-left { grid-column: 3; }
-.t-item:nth-child(even) .t-mid { grid-column: 2; }
-.t-item:nth-child(even) .t-right { grid-column: 1; grid-row: 1; }
-.t-left, .t-right { padding-inline: var(--space-8); }
-.t-item:nth-child(odd) .t-left { text-align: end; }
-.t-mid { display: flex; flex-direction: column; align-items: center; gap: 0; padding-top: 4px; }
-.t-node { width: 12px; height: 12px; border-radius: var(--radius-full); background: var(--c-ink); border: 2px solid var(--c-gold); position: relative; z-index: 1; transition: background var(--duration-fast); }
-.t-item:hover .t-node { background: var(--c-gold); box-shadow: 0 0 0 6px rgba(201,162,39,0.15); }
-.t-year { font-family: var(--ff-mono); font-size: var(--fs-sm); color: var(--c-gold); letter-spacing: 0.18em; text-transform: uppercase; margin-top: var(--space-2); text-align: center; font-variant-numeric: tabular-nums; }
-.t-card { padding: var(--space-5) var(--space-6); border: 1px solid rgba(201,162,39,0.12); background: rgba(26,32,53,0.5); border-radius: var(--radius-sm); transition: all var(--duration-fast); }
-.t-item:hover .t-card { border-color: rgba(201,162,39,0.28); background: rgba(30,38,63,0.7); transform: translateY(-2px); }
-.t-card h3 { font-family: var(--ff-display); font-size: var(--fs-base); font-weight: 600; color: var(--c-parchment-2); margin-bottom: var(--space-2); line-height: 1.3; }
-.t-card p { font-size: var(--fs-sm); color: var(--c-bone); line-height: 1.65; }
-
-/* Podcast Banner */
-.podcast-banner { background: #060a12; padding: var(--space-12) var(--space-6); text-align: center; position: relative; overflow: hidden; border-top: 1px solid rgba(201,162,39,0.08); border-bottom: 1px solid rgba(201,162,39,0.08); }
-.podcast-content { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; }
-.podcast-content h2 { font-family: var(--ff-display); color: var(--c-gold-light); font-size: var(--fs-2xl); margin-bottom: var(--space-4); font-weight: 300; }
-.podcast-content p { color: var(--c-bone); margin-bottom: var(--space-6); font-size: var(--fs-base); }
-.podcast-tags { display: flex; justify-content: center; gap: var(--space-6); flex-wrap: wrap; }
-.podcast-tags span { color: var(--c-gold); font-weight: 600; font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: 0.15em; font-family: var(--ff-mono); }
-.podcast-tags span::before { content: '•'; margin-right: var(--space-6); color: var(--c-gold); }
-.podcast-tags span:first-child::before { content: none; }
-
-/* Contact */
-.contact-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: clamp(3rem, 5vw, 5rem); align-items: start; }
-.c-info-item { display: flex; gap: var(--space-5); margin-bottom: var(--space-8); }
-.c-info-icon { width: 46px; height: 46px; flex-shrink: 0; border: 1px solid rgba(201,162,39,0.25); border-radius: var(--radius-full); display: flex; align-items: center; justify-content: center; color: var(--c-gold); font-size: var(--fs-sm); transition: all var(--duration-fast); }
-.c-info-item:hover .c-info-icon { background: rgba(201,162,39,0.1); border-color: var(--c-gold); transform: scale(1.05); }
-.c-info-title { font-family: var(--ff-display); font-size: var(--fs-base); font-weight: 600; color: var(--c-parchment-2); margin-bottom: var(--space-1); }
-.c-info-val { font-size: var(--fs-sm); color: var(--c-bone); word-break: break-word; }
-.c-info-val a { transition: color var(--duration-fast); }
-.c-info-val a:hover { color: var(--c-gold); }
-.btn-wa { display: inline-flex; align-items: center; gap: var(--space-2); background: var(--c-whats); color: #fff; font-family: var(--ff-body); font-size: var(--fs-xs); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: var(--space-3) var(--space-6); border-radius: var(--radius-sm); margin-top: var(--space-3); transition: all var(--duration-fast); text-decoration: none; }
-.btn-wa:hover { background: var(--c-whats-dark); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(37,211,102,0.3); }
-
-.contact-form-wrap { background: rgba(26,32,53,0.5); border: 1px solid rgba(201,162,39,0.1); border-radius: var(--radius-sm); padding: clamp(var(--space-6), 4vw, var(--space-10)); }
-.form-title { font-family: var(--ff-display); font-size: var(--fs-xl); font-weight: 400; color: var(--c-parchment-2); margin-bottom: var(--space-8); }
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); }
-.form-field { margin-bottom: var(--space-5); }
-.form-field label { display: block; font-family: var(--ff-mono); font-size: var(--fs-xs); color: var(--c-gold); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: var(--space-2); }
-.form-field input, .form-field textarea { width: 100%; padding: var(--space-3) var(--space-4); background: rgba(18,24,41,0.5); border: 1px solid rgba(201,162,39,0.15); border-radius: var(--radius-sm); color: var(--c-parchment); font-family: var(--ff-body); font-size: var(--fs-sm); transition: all var(--duration-fast); }
-.form-field input:focus, .form-field textarea:focus { outline: none; border-color: var(--c-gold); background: rgba(18,24,41,0.8); box-shadow: 0 0 0 3px rgba(201,162,39,0.1); }
-.form-field textarea { resize: vertical; min-height: 120px; }
-.form-submit { width: 100%; justify-content: center; margin-top: var(--space-2); }
-.form-status { font-family: var(--ff-mono); font-size: var(--fs-xs); color: var(--c-gold); margin-top: var(--space-4); opacity: 0; transition: opacity var(--duration-fast); min-height: 1.5em; }
-.form-status.visible { opacity: 1; }
-.form-status.success { color: var(--c-whats); }
-.form-status.error { color: #e74c3c; }
-
-/* Footer */
-.footer { background: #060a12; border-top: 1px solid rgba(201,162,39,0.08); padding-block: var(--space-12) var(--space-8); }
-.footer-grid { display: grid; grid-template-columns: 1.8fr 1fr 1fr; gap: clamp(2rem, 4vw, 3.75rem); padding-bottom: var(--space-12); border-bottom: 1px solid rgba(201,162,39,0.08); }
-.f-brand-name { font-family: var(--ff-display); font-size: var(--fs-2xl); font-weight: 300; color: var(--c-parchment-2); margin-bottom: var(--space-4); }
-.f-brand-desc { font-size: var(--fs-sm); color: var(--c-bone); line-height: 1.8; max-width: 32ch; }
-.f-socials { display: flex; gap: var(--space-3); margin-top: var(--space-6); }
-.f-social-btn { width: 40px; height: 40px; border: 1px solid rgba(201,162,39,0.2); border-radius: var(--radius-full); display: flex; align-items: center; justify-content: center; color: var(--c-bone); font-size: var(--fs-sm); transition: all var(--duration-fast); }
-.f-social-btn:hover { background: var(--c-gold); color: var(--c-ink); border-color: var(--c-gold); transform: translateY(-3px); box-shadow: 0 4px 12px rgba(201,162,39,0.2); }
-.f-col-title { font-family: var(--ff-mono); font-size: var(--fs-xs); color: var(--c-gold); letter-spacing: 0.22em; text-transform: uppercase; margin-bottom: var(--space-6); }
-.f-links { display: flex; flex-direction: column; gap: var(--space-3); }
-.f-links a { font-size: var(--fs-sm); color: var(--c-bone); transition: all var(--duration-fast); display: inline-block; }
-.f-links a:hover { color: var(--c-parchment-2); padding-left: var(--space-2); transform: translateX(4px); }
-.footer-bottom { padding-top: var(--space-8); display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); flex-wrap: wrap; }
-.footer-copy { font-family: var(--ff-mono); font-size: var(--fs-xs); color: rgba(184,176,160,0.4); letter-spacing: 0.1em; }
-
-/* Floating Elements */
-.float-wa { position: fixed; bottom: var(--space-6); left: var(--space-6); z-index: var(--z-sticky); width: 52px; height: 52px; border-radius: var(--radius-full); background: var(--c-whats); color: #fff; display: flex; align-items: center; justify-content: center; font-size: var(--fs-xl); box-shadow: 0 6px 24px rgba(37,211,102,0.3); transition: all var(--duration-fast); animation: float-pulse 3s ease-in-out infinite; }
-@keyframes float-pulse { 0%, 100% { box-shadow: 0 6px 24px rgba(37,211,102,0.3); } 50% { box-shadow: 0 6px 32px rgba(37,211,102,0.5); } }
-.float-wa:hover { background: var(--c-whats-dark); transform: scale(1.08); }
-
-#backToTop { position: fixed; bottom: var(--space-6); right: var(--space-6); z-index: var(--z-sticky); width: 52px; height: 52px; border-radius: var(--radius-full); background: var(--c-ink-soft); border: 1px solid rgba(201,162,39,0.3); color: var(--c-gold); font-size: var(--fs-base); cursor: pointer; opacity: 0; visibility: hidden; transition: all var(--duration-fast); display: flex; align-items: center; justify-content: center; }
-#backToTop.vis { opacity: 1; visibility: visible; }
-#backToTop:hover { background: var(--c-gold); color: var(--c-ink); border-color: var(--c-gold); transform: translateY(-4px); box-shadow: 0 4px 16px rgba(201,162,39,0.25); }
-
-/* Reveal Animations */
-.reveal { opacity: 0; transform: translateY(36px); transition: opacity var(--duration-slow) var(--ease-silk), transform var(--duration-slow) var(--ease-silk); }
-.reveal.r-left { transform: translateX(-40px); }
-.reveal.r-right { transform: translateX(40px); }
-.reveal.active { opacity: 1; transform: translate(0); }
-.stagger > * { opacity: 0; transform: translateY(28px); transition: opacity var(--duration-normal) var(--ease-silk), transform var(--duration-normal) var(--ease-silk); }
-.stagger.active > *:nth-child(1) { transition-delay: 0.05s; }
-.stagger.active > *:nth-child(2) { transition-delay: 0.15s; }
-.stagger.active > *:nth-child(3) { transition-delay: 0.25s; }
-.stagger.active > *:nth-child(4) { transition-delay: 0.35s; }
-.stagger.active > *:nth-child(5) { transition-delay: 0.45s; }
-.stagger.active > *:nth-child(6) { transition-delay: 0.55s; }
-.stagger.active > *:nth-child(7) { transition-delay: 0.65s; }
-.stagger.active > *:nth-child(8) { transition-delay: 0.75s; }
-.stagger.active > * { opacity: 1; transform: translateY(0); }
-
-/* Responsive */
-@media (max-width: 1100px) {
-  .books-grid { grid-template-columns: 1fr 1fr; }
-  .docs-grid { grid-template-columns: 1fr 1fr; }
-  .footer-grid { grid-template-columns: 1fr 1fr; gap: var(--space-8); }
-}
-
-@media (max-width: 900px) {
-  .hero { grid-template-columns: 1fr; min-height: auto; }
-  .hero-image-panel { height: 55vw; min-height: 300px; }
-  .hero-doc-card { display: none; }
-  .hero-content { padding: var(--space-12) var(--container-pad) var(--space-16); }
-  .about-grid { grid-template-columns: 1fr; gap: var(--space-12); }
-  .contact-grid { grid-template-columns: 1fr; gap: var(--space-10); }
-  .gallery-mosaic { grid-template-columns: 1fr 1fr; }
-  .gal-item:nth-child(1) { grid-row: auto; }
-  .t-item { grid-template-columns: 1fr; gap: var(--space-3); }
-  .t-item:nth-child(even) .t-left, .t-item:nth-child(even) .t-mid, .t-item:nth-child(even) .t-right { grid-column: 1; grid-row: auto; }
-  .timeline-wrap::before { left: 20px; }
-  .t-mid { flex-direction: row; justify-content: flex-start; padding-left: 6px; }
-  .t-year { margin-top: 0; margin-left: var(--space-3); text-align: start; }
-  .t-left, .t-right { padding: 0 0 0 48px; text-align: start !important; }
-  .publication-card { grid-template-columns: 1fr; }
-  .publication-info { padding: var(--space-6); }
-  .initiative-content { grid-template-columns: 1fr; gap: var(--space-10); }
-  .archive-icon { width: 180px; height: 180px; }
-}
-
-@media (max-width: 720px) {
-  #navbar { display: none; position: absolute; top: 100%; left: 0; right: 0; background: rgba(10,14,26,0.97); backdrop-filter: blur(24px); border-bottom: 1px solid rgba(201,162,39,0.1); padding-block: var(--space-4); }
-  #navbar.open { display: block; }
-  #navbar ul { flex-direction: column; gap: 0; }
-  #navbar a { display: block; padding: var(--space-3) var(--space-6); }
-  #menuToggle { display: block; }
-  .hero-content { padding: var(--space-10) var(--container-pad) var(--space-12); }
-  .books-grid { grid-template-columns: 1fr; }
-  .docs-grid { grid-template-columns: 1fr; }
-  .achievements-grid { grid-template-columns: 1fr; }
-  .topics-grid { grid-template-columns: 1fr; }
-  .form-row { grid-template-columns: 1fr; }
-  .footer-grid { grid-template-columns: 1fr; }
-  .footer-bottom { flex-direction: column; gap: var(--space-3); text-align: center; }
-  .contact-form-wrap { padding: var(--space-6) var(--container-pad); }
-  .s-padding { padding-block: var(--space-16); }
-  .hero-divider { grid-template-columns: 1fr; gap: var(--space-6); text-align: center; }
-  .about-achievement-grid { grid-template-columns: 1fr; }
-  .works-grid { grid-template-columns: 1fr; }
-  .gallery-mosaic { grid-template-columns: 1fr; }
-  .gal-item:nth-child(1) { grid-row: auto; aspect-ratio: 1; }
-}
-
-/* Reduced Motion */
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
-  .cursor-dot, .cursor-ring { display: none !important; }
-  .ticker-track { animation: none !important; }
-}
-
-/* Print */
-@media print {
-  #preloader, #progress-bar, .cursor-dot, .cursor-ring, .float-wa, #backToTop, .hero-ticker, #menuToggle, .lightbox, .hero-doc-card { display: none !important; }
-  body { background: #fff; color: #000; }
-  .hero { min-height: auto; grid-template-columns: 1fr; }
-  .hero-image-panel { height: 300px; }
-  a[href]::after { content: " (" attr(href) ")"; font-size: 0.8em; opacity: 0.7; }
-  section { break-inside: avoid; }
-}
-</style>
-
+        /* Accordion styles for historical texts */
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out, padding 0.5s ease-out;
+        }
+        .accordion-item.open .accordion-content {
+            max-height: 4000px; /* Large enough to fit content */
+            padding-top: 1.5rem;
+        }
+        .accordion-item.open .accordion-icon {
+            transform: rotate(45deg);
+        }
+        .accordion-icon {
+            transition: transform 0.3s ease;
+        }
+        .text-justify-custom {
+            text-align: justify;
+            line-height: 1.8;
+        }
+    </style>
 </head>
-<body>
+<body class="antialiased relative">
 
-<!-- Skip Link -->
-<a href="#main-content" class="skip-link">Ruka kwenda Maudhui</a>
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
 
-<!-- Custom Cursor -->
-<div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
-<div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+    <!-- Neural Network Background -->
+    <canvas id="neural-canvas"></canvas>
 
-<!-- Scroll Progress -->
-<div id="progress-bar" role="progressbar" aria-label="Scroll progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+    <!-- Scroll Progress -->
+    <div id="progress-bar" class="fixed top-0 left-0 h-[3px] bg-gradient-to-r from-gold to-neongold w-0 z-[100] transition-all duration-75 shadow-[0_0_10px_#D4AF37]"></div>
 
-<!-- Preloader -->
-<div id="preloader" role="alert" aria-live="assertive" aria-busy="true">
-  <div class="pre-emblem">
-    <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <circle cx="40" cy="40" r="36" stroke="#c9a227" stroke-width="1" stroke-dasharray="4 6" />
-      <circle cx="40" cy="40" r="28" stroke="rgba(201,162,39,0.3)" stroke-width="0.5" />
-    </svg>
-    <div class="pre-emblem-inner"><span>M</span></div>
-  </div>
-  <div class="pre-line" aria-hidden="true"></div>
-  <div class="pre-text">Loading Archive</div>
-</div>
-
-<!-- Header -->
-<header id="header" role="banner">
-  <div class="container">
-    <div class="header-inner">
-      <a href="#home" class="logo-link magnetic" aria-label="Mohamed Said Historical Archive — Home">
-        <div class="logo-seal">
-          <img src="https://z-cdn-media.chatglm.cn/files/39f62db4-b681-48ac-9f3e-a508c99a8e74.png?auth_key=1885357611-5f417e95af504ae4a9319ae4e47db3a9-0-d903b2de56246772afe306b97244fb64" alt="Mohamed Said Logo" loading="eager" width="48" height="48">
-        </div>
-        <div>
-          <span class="logo-name">Mohamed Said</span>
-          <span class="logo-sub">Historical Archive</span>
-        </div>
-      </a>
-
-      <nav id="navbar" aria-label="Main navigation">
-        <ul>
-          <li><a href="#home" aria-current="page">Nyumbani</a></li>
-          <li><a href="#video">Video</a></li>
-          <li><a href="#about">Kuhusu</a></li>
-          <li><a href="#mchango">Mchango</a></li>
-          <li><a href="#documents">Nyaraka</a></li>
-          <li><a href="#machapisho">Machapisho</a></li>
-          <li><a href="#books">Vitabu</a></li>
-          <li><a href="#kazi">Kazi</a></li>
-          <li><a href="#mada">Mada</a></li>
-          <li><a href="#gallery">Picha</a></li>
-          <li><a href="#timeline">Historia</a></li>
-          <li><a href="#contact">Mawasiliano</a></li>
-        </ul>
-      </nav>
-
-      <button id="menuToggle" aria-label="Toggle Menu" aria-expanded="false" aria-controls="navbar">
-        <i class="fa-solid fa-bars" aria-hidden="true"></i>
-      </button>
-    </div>
-  </div>
-</header>
-
-<!-- Main Content -->
-<main id="main-content">
-
-<!-- ═══ HERO ═══ -->
-<section id="home" class="hero" aria-label="Hero">
-  <div class="hero-image-panel" id="heroImgPanel">
-    <img src="https://z-cdn-media.chatglm.cn/files/6cd65323-4b93-4e17-835d-ee4d6b5be19d.jpg?auth_key=1885357611-ebd0c0b7cfe0486193175720c0b77cc5-0-b1e785bba25c518042dfff7859ac3c1c" alt="Mohamed Said — Historian and Researcher" loading="eager" width="800" height="1000">
-    <div class="hero-vert-label">Est. Dar es Salaam &middot; Tanzania</div>
-    <div class="hero-doc-card">
-      <span class="doc-label">Media Kit</span>
-      <div class="doc-stat"><span data-count="40">0</span>+</div>
-      <div class="doc-desc">Miaka ya utafiti wa historia ya Tanzania</div>
-    </div>
-  </div>
-
-  <div class="hero-content">
-    <div class="hero-eyebrow">
-      <span class="eyebrow-line" aria-hidden="true"></span>
-      <span class="eyebrow-text">Official Media Kit</span>
-    </div>
-
-    <h1 class="hero-headline">
-      Mohamed Said<em>Historian &middot; Researcher<br>&middot; Archivist</em>
-    </h1>
-
-    <p class="hero-caption">
-      Mwandishi, Mtafiti na Mlinzi wa Kumbukumbu za Taifa La Tanzania. Kupitia vitabu, tafiti, na makala, amechangia kwa kiasi kikubwa kuibua simulizi, ushahidi na kumbukumbu muhimu zinazohusiana na historia ya Tanzania.
-    </p>
-
-    <blockquote class="hero-quote">
-      "Kuhifadhi Historia. Kukuza Maarifa. Kulinda Kumbukumbu za Taifa."
-      <cite>&mdash; Mohamed Said</cite>
-    </blockquote>
-
-    <div class="hero-cta-group">
-      <a href="#documents" class="btn-arch btn-arch-primary magnetic">
-        <i class="fa-solid fa-folder-open" aria-hidden="true"></i> Soma Nyaraka
-      </a>
-      <a href="#about" class="btn-arch btn-arch-ghost magnetic">
-        <i class="fa-solid fa-circle-play" aria-hidden="true"></i> Maelezo Zaidi
-      </a>
-    </div>
-
-    <div class="hero-divider">
-      <div>
-        <div class="hero-stat-num" data-count="1000">0</div>
-        <span class="hero-stat-label">Nyaraka</span>
-      </div>
-      <div>
-        <div class="hero-stat-num" data-count="500">0</div>
-        <span class="hero-stat-label">Picha</span>
-      </div>
-      <div>
-        <div class="hero-stat-num" data-count="10">0</div>
-        <span class="hero-stat-label">Vitabu</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="hero-ticker" aria-hidden="true">
-    <div class="ticker-track">
-      <span class="ticker-item"><span class="t-dot"></span>Uhuru wa Tanganyika 1961</span>
-      <span class="ticker-item"><span class="t-dot"></span>Harakati za TANU</span>
-      <span class="ticker-item"><span class="t-dot"></span>Abdulwahid Sykes</span>
-      <span class="ticker-item"><span class="t-dot"></span>Julius K. Nyerere</span>
-      <span class="ticker-item"><span class="t-dot"></span>Historia ya Afrika Mashariki</span>
-      <span class="ticker-item"><span class="t-dot"></span>Nyaraka za Ukoloni</span>
-      <span class="ticker-item"><span class="t-dot"></span>Vitabu vya Kihistoria</span>
-      <span class="ticker-item"><span class="t-dot"></span>Uhuru wa Tanganyika 1961</span>
-      <span class="ticker-item"><span class="t-dot"></span>Harakati za TANU</span>
-      <span class="ticker-item"><span class="t-dot"></span>Abdulwahid Sykes</span>
-      <span class="ticker-item"><span class="t-dot"></span>Julius K. Nyerere</span>
-      <span class="ticker-item"><span class="t-dot"></span>Historia ya Afrika Mashariki</span>
-      <span class="ticker-item"><span class="t-dot"></span>Nyaraka za Ukoloni</span>
-      <span class="ticker-item"><span class="t-dot"></span>Vitabu vya Kihistoria</span>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ VIDEO ═══ -->
-<section id="video" class="s-padding video-section" aria-labelledby="video-title">
-  <div class="container">
-    <div class="section-header reveal" style="text-align:center; margin-bottom: var(--space-12);">
-      <div class="section-eyebrow" style="justify-content:center;">
-        <span class="s-eye-line" aria-hidden="true"></span>
-        <span class="s-eye-text">Video Maalum</span>
-        <span class="s-eye-line" aria-hidden="true"></span>
-      </div>
-      <h2 class="section-title" id="video-title">Nyakati za <em>Kihistoria</em></h2>
-      <p class="section-body" style="margin: var(--space-5) auto 0;">Tazama nyakati za kihistoria na matukio yanayohifadhi urithi wa kitamaduni wa Tanzania</p>
-    </div>
-    <div class="video-wrapper reveal">
-      <video controls poster="1000724389.jpg" preload="metadata">
-        <source src="1000724407.mp4" type="video/mp4">
-        Kivinjari chako hakitumii tagi za video. Tafadhali sasisha kivinjari chako.
-      </video>
-    </div>
-    <div class="video-caption reveal">
-      <h3><i class="fa-solid fa-film" aria-hidden="true"></i> Matukio ya Kitamaduni</h3>
-      <p>Video hii inaonyesha matukio muhimu yanayohusu historia na tamaduni za Waislamu nchini Tanzania, sehemu ya kumbukumbu zinazohifadhiwa katika Mohamed Said Digital Archive.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ ABOUT ═══ -->
-<section id="about" class="s-padding" aria-labelledby="about-title">
-  <div class="container">
-    <div class="about-grid">
-      <div class="about-image-wrap reveal r-left">
-        <img class="about-img" src="https://z-cdn-media.chatglm.cn/files/77a5866b-8910-46b7-922e-4a8c3da40589.jpg?auth_key=1885357611-307a118c7e76460594954d0565e56dbf-0-3da8d558ac92ad84c83f0887d065c5b7" alt="Historical Archive Collection" loading="lazy" width="600" height="750">
-        <div class="about-stamp">Archive &middot; Est. Dar es Salaam</div>
-      </div>
-
-      <div class="about-content reveal r-right">
-        <div class="section-eyebrow">
-          <span class="s-eye-line" aria-hidden="true"></span>
-          <span class="s-eye-text">About Mohamed Said</span>
-        </div>
-        <h2 class="section-title" id="about-title">Kwa Nini Mohamed Said<br><em>ni Muhimu?</em></h2>
-
-        <div class="about-text-body">
-          <p>Mohamed Said ni mwanahistoria, mtafiti, mwandishi na mhifadhi wa kumbukumbu za historia ya Tanzania mwenye zaidi ya miaka 40 ya uzoefu katika utafiti wa historia ya uhuru wa Tanganyika, historia ya Waislamu Tanzania, nyaraka za kihistoria na historiografia ya Afrika Mashariki.</p>
-          <p>Kwa zaidi ya miongo minne, amekuwa miongoni mwa watafiti walioweka wazi nyaraka, simulizi na ushahidi wa kihistoria ambao kwa muda mrefu haukupata nafasi ya kutosha katika historia rasmi ya Tanzania.</p>
-          <p>Kazi yake imechochea uelewa mpya kuhusu mapambano ya Waislamu dhidi ya ukoloni wa Waingereza nchini Tanganyika, na kuweka historia sahihi kwa vizazi vijavyo.</p>
-        </div>
-
-        <div class="about-achievement-grid">
-          <div class="about-achievement-item">
-            <i class="fa-solid fa-check about-ach-icon" aria-hidden="true"></i>
-            <span class="about-ach-text">Miaka 40+ ya utafiti</span>
-          </div>
-          <div class="about-achievement-item">
-            <i class="fa-solid fa-check about-ach-icon" aria-hidden="true"></i>
-            <span class="about-ach-text">Mwandishi wa Vitabu</span>
-          </div>
-          <div class="about-achievement-item">
-            <i class="fa-solid fa-check about-ach-icon" aria-hidden="true"></i>
-            <span class="about-ach-text">Mchangiaji Mkuu wa Mijadala</span>
-          </div>
-          <div class="about-achievement-item">
-            <i class="fa-solid fa-check about-ach-icon" aria-hidden="true"></i>
-            <span class="about-ach-text">Mwanzilishi wa Digital Archive</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ ACHIEVEMENTS ═══ -->
-<section id="mchango" class="s-padding achievements-section" aria-labelledby="achievements-title">
-  <div class="container">
-    <div class="reveal" style="text-align:center; max-width: 600px; margin: 0 auto var(--space-12);">
-      <div class="section-eyebrow" style="justify-content:center;">
-        <span class="s-eye-line" aria-hidden="true"></span>
-        <span class="s-eye-text">Mafanikio Makuu</span>
-        <span class="s-eye-line" aria-hidden="true"></span>
-      </div>
-      <h2 class="section-title" id="achievements-title">Changamoto na <em>Mchango</em></h2>
-      <p class="section-body" style="margin-top: var(--space-5);">Changamoto na mchango wake katika ulinzi wa historia ya Tanzania</p>
-    </div>
-    <div class="achievements-grid stagger">
-      <div class="achievement-card">
-        <div class="achievement-icon"><i class="fa-solid fa-search" aria-hidden="true"></i></div>
-        <h3>Utafiti wa Kina</h3>
-        <p>Miaka 40+ ya utafiti wa historia ya Tanzania, kuanzia historia ya uhuru wa Tanganyika hadi historia ya Waislamu.</p>
-      </div>
-      <div class="achievement-card">
-        <div class="achievement-icon"><i class="fa-solid fa-pen-fancy" aria-hidden="true"></i></div>
-        <h3>Mwandishi Mzuri</h3>
-        <p>Mwandishi wa vitabu, tafti na makala mbalimbali yanayoangazia historia na siasa za Tanzania.</p>
-      </div>
-      <div class="achievement-card">
-        <div class="achievement-icon"><i class="fa-solid fa-newspaper" aria-hidden="true"></i></div>
-        <h3>Mchungaji wa Majadala</h3>
-        <p>Mchungaji wa majadala ya historia ya taifa, akichochea mawazo mapya na ukweli wa kihistoria.</p>
-      </div>
-      <div class="achievement-card">
-        <div class="achievement-icon"><i class="fa-solid fa-archive" aria-hidden="true"></i></div>
-        <h3>Mhifadhi wa Nyaraka</h3>
-        <p>Mhamasishaji wa ulinzi wa nyaraka na kumbukumbu za taifa kwa vizazi vijavyo.</p>
-      </div>
-      <div class="achievement-card">
-        <div class="achievement-icon"><i class="fa-solid fa-server" aria-hidden="true"></i></div>
-        <h3>Mwanzilishi wa Digital Archive</h3>
-        <p>Mwanzilishi wa Mohamed Said Digital Archive, mradi wa kuhifadhi historia kwa njia ya kidigitali.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ DOCUMENTS ═══ -->
-<section id="documents" class="s-padding docs-bg" aria-labelledby="documents-title">
-  <div class="container">
-    <div class="reveal" style="max-width:600px">
-      <div class="section-eyebrow">
-        <span class="s-eye-line" aria-hidden="true"></span>
-        <span class="s-eye-text">Documents Archive</span>
-      </div>
-      <h2 class="section-title" id="documents-title">Makusanyo ya<br><em>Nyaraka za Kihistoria</em></h2>
-      <p class="section-body" style="margin-top: var(--space-5);">Bofya kadi yoyote hapo chini ili kusoma au kupakua nyaraka za kihistoria zilizohifadhiwa kupitia Mikusanyiko ya Mohamed Said.</p>
-    </div>
-
-    <div class="docs-grid stagger">
-      <a href="https://raw.githubusercontent.com/shiosamwanza-source/Mohamed-Said/main/documents/Ally_Sykes_Peter_Colmore_na_Jim_Bailey.pdf" target="_blank" rel="noopener noreferrer" class="doc-card tilt-card magnetic" aria-label="Soma au Pakua: Ally Sykes, Peter Colmore na Jim Bailey (PDF)">
-        <div>
-          <div class="doc-head">
-            <i class="fa-solid fa-file-pdf doc-icon" aria-hidden="true"></i>
-            <span class="doc-badge">PDF</span>
-          </div>
-          <h3 class="doc-title">Ally Sykes, Peter Colmore na Jim Bailey</h3>
-        </div>
-        <span class="doc-download"><i class="fa-solid fa-arrow-down" aria-hidden="true"></i> Soma / Pakua</span>
-      </a>
-
-      <a href="https://raw.githubusercontent.com/shiosamwanza-source/Mohamed-Said/main/documents/Irving_Wallace_Angeandika.pdf" target="_blank" rel="noopener noreferrer" class="doc-card tilt-card magnetic" aria-label="Soma au Pakua: Irving Wallace Angeandika (PDF)">
-        <div>
-          <div class="doc-head">
-            <i class="fa-solid fa-file-pdf doc-icon" aria-hidden="true"></i>
-            <span class="doc-badge">PDF</span>
-          </div>
-          <h3 class="doc-title">Irving Wallace Angeandika</h3>
-        </div>
-        <span class="doc-download"><i class="fa-solid fa-arrow-down" aria-hidden="true"></i> Soma / Pakua</span>
-      </a>
-
-      <a href="https://raw.githubusercontent.com/shiosamwanza-source/Mohamed-Said/main/documents/Now_You_See_Him_Now_You_Dont.pdf" target="_blank" rel="noopener noreferrer" class="doc-card tilt-card magnetic" aria-label="Soma au Pakua: Now You See Him, Now You Don't (PDF)">
-        <div>
-          <div class="doc-head">
-            <i class="fa-solid fa-file-pdf doc-icon" aria-hidden="true"></i>
-            <span class="doc-badge">PDF</span>
-          </div>
-          <h3 class="doc-title">Now You See Him, Now You Don't</h3>
-        </div>
-        <span class="doc-download"><i class="fa-solid fa-arrow-down" aria-hidden="true"></i> Soma / Pakua</span>
-      </a>
-
-      <a href="https://raw.githubusercontent.com/shiosamwanza-source/Mohamed-Said/main/documents/Padri_Yohannes_Hafliger_Peramiho.pdf" target="_blank" rel="noopener noreferrer" class="doc-card tilt-card magnetic" aria-label="Soma au Pakua: Padri Yohannes Hafliger Peramiho (PDF)">
-        <div>
-          <div class="doc-head">
-            <i class="fa-solid fa-file-pdf doc-icon" aria-hidden="true"></i>
-            <span class="doc-badge">PDF</span>
-          </div>
-          <h3 class="doc-title">Padri Yohannes Hafliger Peramiho</h3>
-        </div>
-        <span class="doc-download"><i class="fa-solid fa-arrow-down" aria-hidden="true"></i> Soma / Pakua</span>
-      </a>
-
-      <a href="https://raw.githubusercontent.com/shiosamwanza-source/Mohamed-Said/main/documents/Peter_Colmore_Mzungu_Mswahili.pdf" target="_blank" rel="noopener noreferrer" class="doc-card tilt-card magnetic" aria-label="Soma au Pakua: Peter Colmore: Mzungu Mswahili (PDF)">
-        <div>
-          <div class="doc-head">
-            <i class="fa-solid fa-file-pdf doc-icon" aria-hidden="true"></i>
-            <span class="doc-badge">PDF</span>
-          </div>
-          <h3 class="doc-title">Peter Colmore: Mzungu Mswahili</h3>
-        </div>
-        <span class="doc-download"><i class="fa-solid fa-arrow-down" aria-hidden="true"></i> Soma / Pakua</span>
-      </a>
-
-      <a href="https://raw.githubusercontent.com/shiosamwanza-source/Mohamed-Said/main/documents/Simulizi_za_Mama_Daisy.pdf" target="_blank" rel="noopener noreferrer" class="doc-card tilt-card magnetic" aria-label="Soma au Pakua: Simulizi za Mama Daisy (PDF)">
-        <div>
-          <div class="doc-head">
-            <i class="fa-solid fa-file-pdf doc-icon" aria-hidden="true"></i>
-            <span class="doc-badge">PDF</span>
-          </div>
-          <h3 class="doc-title">Simulizi za Mama Daisy</h3>
-        </div>
-        <span class="doc-download"><i class="fa-solid fa-arrow-down" aria-hidden="true"></i> Soma / Pakua</span>
-      </a>
-
-      <a href="https://raw.githubusercontent.com/shiosamwanza-source/Mohamed-Said/main/documents/Waswahili_wa_Marekani.pdf" target="_blank" rel="noopener noreferrer" class="doc-card tilt-card magnetic" aria-label="Soma au Pakua: Waswahili wa Marekani (PDF)">
-        <div>
-          <div class="doc-head">
-            <i class="fa-solid fa-file-pdf doc-icon" aria-hidden="true"></i>
-            <span class="doc-badge">PDF</span>
-          </div>
-          <h3 class="doc-title">Waswahili wa Marekani</h3>
-        </div>
-        <span class="doc-download"><i class="fa-solid fa-arrow-down" aria-hidden="true"></i> Soma / Pakua</span>
-      </a>
-
-      <a href="mahakama-ya-kadhi-tanga.pdf" target="_blank" rel="noopener noreferrer" class="doc-card tilt-card magnetic" aria-label="Soma au Pakua: Mahakama ya Kadhi Tanga (PDF)">
-        <div>
-          <div class="doc-head">
-            <i class="fa-solid fa-file-pdf doc-icon" aria-hidden="true"></i>
-            <span class="doc-badge">PDF</span>
-          </div>
-          <h3 class="doc-title">Mahakama ya Kadhi Tanga</h3>
-        </div>
-        <span class="doc-download"><i class="fa-solid fa-arrow-down" aria-hidden="true"></i> Soma / Pakua</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ FEATURED PUBLICATION ═══ -->
-<section id="machapisho" class="s-padding publication-section" aria-labelledby="pub-title">
-  <div class="container">
-    <div class="section-header reveal" style="margin-bottom: var(--space-10);">
-      <div class="section-eyebrow">
-        <span class="s-eye-line" aria-hidden="true"></span>
-        <span class="s-eye-text">Chapisho Kuu</span>
-      </div>
-      <h2 class="section-title" id="pub-title">Kitabu cha <em>Kihistoria</em></h2>
-    </div>
-
-    <div class="publication-card reveal">
-      <div class="publication-cover">
-        <img src="assets/images/abdulwahid-sykes.jpg" alt="Abdulwahid Sykes Book Cover" loading="lazy" style="width: 100%; height: auto; border-radius: var(--radius-md); object-fit: cover;">
-      </div>
-      <div class="publication-info">
-        <span class="publication-tag">Utafiti wa Kihistoria</span>
-        <h3>The Life and Times of Abdulwahid Sykes (1924&ndash;1968)</h3>
-        <p class="subtitle">The Market Literary and Political History of Tanganyika</p>
-        <p>
-          Kitabu hiki kinachunguza kwa kina mchango wa Abdulwahid Sykes na familia yake katika kuanzishwa kwa harakati za kisiasa zilizopelekea kuundwa kwa TANU na kupatikana kwa Uhuru wa Tanganyika.
-        </p>
-        <div>
-          <a href="#contact" class="btn-arch btn-arch-primary magnetic">
-            <i class="fa-solid fa-book-open" aria-hidden="true"></i> Agiza Kitabu
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ BOOKS / MAKTABA YA VITABU ═══ -->
-<section id="books" class="s-padding" aria-labelledby="books-title">
-  <div class="container">
-    <div class="section-header reveal" style="margin-bottom: var(--space-12);">
-      <div class="section-eyebrow">
-        <span class="s-eye-line" aria-hidden="true"></span>
-        <span class="s-eye-text">Maktaba</span>
-      </div>
-      <h2 class="section-title" id="books-title">Vitabu vya <em>Mohamed Said</em></h2>
-    </div>
-
-    <div class="books-grid stagger">
-      <div class="book-card tilt-card">
-        <div class="book-cover-wrap" data-label="ANGALIA">
-          <img src="assets/images/abdulwahid-sykes.jpg" alt="Maisha na Nyakati za Abdulwahid Sykes" loading="lazy" width="400" height="533">
-        </div>
-        <div class="book-meta">
-          <span class="book-category">Historia / TANU</span>
-          <h3 class="book-title">Maisha na Nyakati za Abdulwahid Sykes</h3>
-          <span class="book-author">Mohamed Said</span>
-        </div>
-      </div>
-
-      <div class="book-card tilt-card">
-        <div class="book-cover-wrap" data-label="ANGALIA">
-          <img src="assets/images/mohamed-said.jpg" alt="Uislam na Siasa nchini Tanzania" loading="lazy" width="400" height="533">
-        </div>
-        <div class="book-meta">
-          <span class="book-category">Utafiti na Siasa</span>
-          <h3 class="book-title">Uislam na Siasa nchini Tanzania</h3>
-          <span class="book-author">Mohamed Said</span>
-        </div>
-      </div>
-
-      <div class="book-card tilt-card">
-        <div class="book-cover-wrap" data-label="ANGALIA">
-          <img src="assets/images/mohamed-library.jpg" alt="Torch on the Hill" loading="lazy" width="400" height="533">
-        </div>
-        <div class="book-meta">
-          <span class="book-category">Makala na Kumbukumbu</span>
-          <h3 class="book-title">Torch on the Hill: Historical Essays</h3>
-          <span class="book-author">Mohamed Said</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ WORKS & RESEARCH ═══ -->
-<section id="kazi" class="s-padding docs-bg" aria-labelledby="works-title">
-  <div class="container">
-    <div class="reveal" style="text-align:center; margin-bottom: var(--space-10);">
-      <div class="section-eyebrow" style="justify-content:center;">
-        <span class="s-eye-line" aria-hidden="true"></span>
-        <span class="s-eye-text">Kazi na Utafiti</span>
-        <span class="s-eye-line" aria-hidden="true"></span>
-      </div>
-      <h2 class="section-title" id="works-title">Machapisho na <em>Tafiti</em></h2>
-      <p class="section-body" style="margin: var(--space-5) auto 0;">Machapisho na tafiti muhimu zilizochangia uelewa wa historia ya Tanzania</p>
-    </div>
-
-    <div class="works-tabs reveal">
-      <button class="tab-btn active" data-tab="works">Vitabu & Kazi</button>
-      <button class="tab-btn" data-tab="research">Tafiti & Insha</button>
-    </div>
-
-    <div id="works" class="works-content">
-      <div class="works-grid stagger">
-        <div class="work-item">
-          <i class="fa-solid fa-book work-icon" aria-hidden="true"></i>
-          <div>
-            <h4>Uamuzi wa Busara wa Tabora</h4>
-            <p>Utafiti wa kina kuhusu historia ya Tabora na mchango wake katika ukombozi wa Tanzania.</p>
-          </div>
-        </div>
-        <div class="work-item">
-          <i class="fa-solid fa-mountain work-icon" aria-hidden="true"></i>
-          <div>
-            <h4>The Torch on Kilimanjaro</h4>
-            <p>Hadithi ya mapambano ya uhuru yaliyoenea kama mwenge kwenye mlima Kilimanjaro.</p>
-          </div>
-        </div>
-        <div class="work-item">
-          <i class="fa-solid fa-user-edit work-icon" aria-hidden="true"></i>
-          <div>
-            <h4>Sal Davis: An Autobiography with Mohamed Said</h4>
-            <p>Maisha ya Sal Davis yaliyoandikwa kwa ushirikiano na Mohamed Said.</p>
-          </div>
-        </div>
-        <div class="work-item">
-          <i class="fa-solid fa-mosque work-icon" aria-hidden="true"></i>
-          <div>
-            <h4>Islam and Politics in Tanzania</h4>
-            <p>Uchunguzi wa uhusiano kati ya dini ya Kiislamu na siasa nchini Tanzania.</p>
-          </div>
-        </div>
-        <div class="work-item">
-          <i class="fa-solid fa-landmark work-icon" aria-hidden="true"></i>
-          <div>
-            <h4>Tanzania: The "Secular" Unsecular State</h4>
-            <p>Uchambuzi wa mfumo wa kiserikali na mahali pa dini katika taifa la Tanzania.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div id="research" class="works-content" style="display: none;">
-      <div class="works-grid stagger">
-        <div class="work-item">
-          <i class="fa-solid fa-file-alt work-icon" aria-hidden="true"></i>
-          <div>
-            <h4>The Plight of Tanzanian Muslim</h4>
-            <p>Uchunguzi wa hali ya Waislamu nchini Tanzania na changamoto wanazokumbana nazo.</p>
-          </div>
-        </div>
-        <div class="work-item">
-          <i class="fa-solid fa-praying-hands work-icon" aria-hidden="true"></i>
-          <div>
-            <h4>Sheikh Hassan bin Ameir &ndash; The Moving Spirit</h4>
-            <p>Maisha na mchango wa Sheikh Hassan bin Ameir katika jamii ya Kiislamu.</p>
-          </div>
-        </div>
-        <div class="work-item">
-          <i class="fa-solid fa-balance-scale work-icon" aria-hidden="true"></i>
-          <div>
-            <h4>Islamic Movement and the Christian Lobby in Tanzania</h4>
-            <p>Uchambuzi wa harakati za Kiislamu na mchango wa kanisa katika siasa za Tanzania.</p>
-          </div>
-        </div>
-        <div class="work-item">
-          <i class="fa-solid fa-shield-alt work-icon" aria-hidden="true"></i>
-          <div>
-            <h4>Terrorism in East Africa: The Tanzanian Experience</h4>
-            <p>Uchunguzi wa ugaidi katika Afrika Mashariki na uzoefu wa Tanzania.</p>
-          </div>
-        </div>
-        <div class="work-item">
-          <i class="fa-solid fa-users work-icon" aria-hidden="true"></i>
-          <div>
-            <h4>In Praise of Ancestors & Mengingeyo</h4>
-            <p>Heshima kwa mababu na michango yao katika ujenzi wa jamii ya kisasa.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ TOPICS ═══ -->
-<section id="mada" class="s-padding" aria-labelledby="topics-title">
-  <div class="container">
-    <div class="reveal" style="text-align:center; margin-bottom: var(--space-12);">
-      <div class="section-eyebrow" style="justify-content:center;">
-        <span class="s-eye-line" aria-hidden="true"></span>
-        <span class="s-eye-text">Mada za Mahojiano</span>
-        <span class="s-eye-line" aria-hidden="true"></span>
-      </div>
-      <h2 class="section-title" id="topics-title">Mada za <em>Mahojiano</em></h2>
-      <p class="section-body" style="margin: var(--space-5) auto 0;">Mada mbalimbali anazozungumza na kufundisha Mohamed Said</p>
-    </div>
-    <div class="topics-grid stagger">
-      <div class="topic-card">
-        <div class="topic-icon"><i class="fa-solid fa-flag" aria-hidden="true"></i></div>
-        <h3>Historia ya Uhuru wa Tanganyika</h3>
-        <p>Mapambano ya uhuru, viongozi wa kwanza na mchango wa jamii mbalimbali katika ukombozi wa taifa.</p>
-      </div>
-      <div class="topic-card">
-        <div class="topic-icon"><i class="fa-solid fa-star-and-crescent" aria-hidden="true"></i></div>
-        <h3>Historia ya Waislamu Tanzania</h3>
-        <p>Utamaduni, dini na mchango wa Waislamu katika ujenzi wa taifa la Tanzania.</p>
-      </div>
-      <div class="topic-card">
-        <div class="topic-icon"><i class="fa-solid fa-scroll" aria-hidden="true"></i></div>
-        <h3>Historiografia na Utafiti wa Nyaraka</h3>
-        <p>Njia za kuandika historia, ulinzi wa nyaraka na umuhimu wa ushahidi wa kihistoria.</p>
-      </div>
-      <div class="topic-card">
-        <div class="topic-icon"><i class="fa-solid fa-microphone-alt" aria-hidden="true"></i></div>
-        <h3>Oral History & Historical Memory</h3>
-        <p>Umuhimu wa simulizi za mdomo katika kuhifadhi kumbukumbu za taifa na jamii.</p>
-      </div>
-      <div class="topic-card">
-        <div class="topic-icon"><i class="fa-solid fa-database" aria-hidden="true"></i></div>
-        <h3>Digital Preservation & Archives</h3>
-        <p>Kuhifadhi nyaraka kwa njia ya kidigitali ili kuzilinda kwa vizazi vijavyo.</p>
-      </div>
-      <div class="topic-card">
-        <div class="topic-icon"><i class="fa-solid fa-chalkboard-teacher" aria-hidden="true"></i></div>
-        <h3>Historia Inayojitokeza Darasani</h3>
-        <p>Jinsi historia inavyofundishwa na kueleweka katika mazingira ya kielimu.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ DIGITAL ARCHIVE INITIATIVE ═══ -->
-<section class="s-padding initiative-section" aria-labelledby="initiative-title">
-  <div class="container">
-    <div class="initiative-content">
-      <div class="initiative-text reveal r-left">
-        <h2 id="initiative-title">Mohamed Said Digital Archive</h2>
-        <p>Mradi wa kisasa wa kukusanya, kuhifadhi na kuweka kidigitali nyaraka, picha, mahojiano, vitabu na kumbukumbu muhimu za historia ya taifa.</p>
-        <p>Maktaba hii ya kidigitali inalenga kuwa rasilimali muhimu kwa watafiti, wanafunzi, walimu, wanahabari na umma kwa ujumla katika kuelewa historia ya kweli ya Tanzania.</p>
-        <ul class="initiative-features">
-          <li><i class="fa-solid fa-check-circle"></i> Nyaraka za kihistoria zilizohifadhiwa</li>
-          <li><i class="fa-solid fa-check-circle"></i> Mahojiano na watu walioshuhudia historia</li>
-          <li><i class="fa-solid fa-check-circle"></i> Vitabu na makala zilizodigitalishwa</li>
-          <li><i class="fa-solid fa-check-circle"></i> Picha na nyaraka za kumbukumbu</li>
-          <li><i class="fa-solid fa-check-circle"></i> Rasilimali kwa ajili ya watafiti na wanafunzi</li>
-        </ul>
-        <a href="https://mohamedsaidsalum.com" target="_blank" rel="noopener noreferrer" class="btn-arch btn-arch-primary" style="margin-top: var(--space-8);">
-          <i class="fa-solid fa-archive" aria-hidden="true"></i> Tembelea Digital Archive
-        </a>
-      </div>
-      <div class="initiative-visual reveal r-right">
-        <div class="archive-icon">
-          <i class="fa-solid fa-book-reader" aria-hidden="true"></i>
-          <span>Digital Archive</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ GALLERY (PICHA ZA KIHISTORIA) ═══ -->
-<section id="gallery" class="s-padding docs-bg" aria-labelledby="gallery-title">
-  <div class="container">
-    <div class="section-header reveal" style="margin-bottom: var(--space-12);">
-      <div class="section-eyebrow">
-        <span class="s-eye-line" aria-hidden="true"></span>
-        <span class="s-eye-text">Picha za Kumbukumbu</span>
-      </div>
-      <h2 class="section-title" id="gallery-title">Matukio katika <em>Picha</em></h2>
-    </div>
-
-    <div class="gallery-mosaic stagger">
-      <div class="gal-item" role="button" tabindex="0" aria-label="View image: Mohamed Said" onclick="openLightbox(this)">
-        <img src="assets/images/mohamed-said.jpg" alt="Mohamed Said" loading="lazy" width="800" height="600">
-        <span class="gal-item-label">Mohamed Said &middot; Mtafiti na Mwandishi</span>
-      </div>
-
-      <div class="gal-item" role="button" tabindex="0" aria-label="View image: Abdulwahid Sykes" onclick="openLightbox(this)">
-        <img src="assets/images/abdulwahid-sykes.jpg" alt="Abdulwahid Sykes" loading="lazy" width="600" height="600">
-        <span class="gal-item-label">Abdulwahid Sykes &middot; Mwasisi wa TANU</span>
-      </div>
-
-      <div class="gal-item" role="button" tabindex="0" aria-label="View image: Maktaba ya Nyaraka" onclick="openLightbox(this)">
-        <img src="assets/images/mohamed-library.jpg" alt="Maktaba ya Nyaraka" loading="lazy" width="600" height="600">
-        <span class="gal-item-label">Maktaba ya Nyaraka za Kale</span>
-      </div>
-
-      <div class="gal-item" role="button" tabindex="0" aria-label="View image: Mwalimu Julius Nyerere" onclick="openLightbox(this)">
-        <img src="assets/images/julius-nyerere.jpg" alt="Mwalimu Julius Nyerere" loading="lazy" width="600" height="600">
-        <span class="gal-item-label">Mwalimu Julius Nyerere</span>
-      </div>
-
-      <div class="gal-item" role="button" tabindex="0" aria-label="View image: Amir Jamal" onclick="openLightbox(this)">
-        <img src="assets/images/amir-jamal.jpg" alt="Amir Jamal" loading="lazy" width="600" height="600">
-        <span class="gal-item-label">Amir Jamal &middot; Kiongozi wa Serikali ya Mwanzo</span>
-      </div>
-
-      <div class="gal-item" role="button" tabindex="0" aria-label="View image: Wanasomaji Zanzibar" onclick="openLightbox(this)">
-        <img src="assets/images/zanzibar-readers.jpg" alt="Wanasomaji Zanzibar" loading="lazy" width="600" height="600">
-        <span class="gal-item-label">Kumbukumbu za Wasomi Zanzibar</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Lightbox -->
-<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image Viewer" aria-hidden="true">
-  <button class="lightbox-close" id="lbClose" aria-label="Close image viewer">
-    <i class="fa-solid fa-xmark" aria-hidden="true"></i>
-  </button>
-  <img id="lbImg" src="" alt="">
-</div>
-
-<!-- ═══ TIMELINE ═══ -->
-<section id="timeline" class="s-padding" aria-labelledby="timeline-title">
-  <div class="container">
-    <div class="reveal" style="text-align:center; max-width: 54ch; margin: 0 auto;">
-      <div class="section-eyebrow" style="justify-content:center;">
-        <span class="s-eye-line" aria-hidden="true"></span>
-        <span class="s-eye-text">Historical Timeline</span>
-        <span class="s-eye-line" aria-hidden="true"></span>
-      </div>
-      <h2 class="section-title" id="timeline-title">Safari ya<br><em>Historia</em></h2>
-    </div>
-
-    <div class="timeline-wrap">
-      <div class="t-item reveal">
-        <div class="t-left"><div class="t-card"><h3>Mwanzo wa Utawala wa Kijerumani</h3><p>Kipindi kilichoanza kubadili historia ya Tanganyika kwa namna kubwa &mdash; miaka ya ukoloni iliyoathiri jamii zote.</p></div></div>
-        <div class="t-mid"><div class="t-node"></div><div class="t-year">1885</div></div>
-        <div class="t-right"></div>
-      </div>
-      <div class="t-item reveal">
-        <div class="t-left"></div>
-        <div class="t-mid"><div class="t-node"></div><div class="t-year">1939</div></div>
-        <div class="t-right"><div class="t-card"><h3>Harakati za Mapema za Utaifa</h3><p>Asasi za kwanza za kisiasa zinaanza kupinga utawala wa kikoloni &mdash; mwanzo wa safari ndefu.</p></div></div>
-      </div>
-      <div class="t-item reveal">
-        <div class="t-left"><div class="t-card"><h3>Kuzaliwa kwa TANU</h3><p>Tanganyika African National Union ilianzishwa, ikiwa ndio nguzo kuu ya harakati za uhuru wa Tanganyika.</p></div></div>
-        <div class="t-mid"><div class="t-node"></div><div class="t-year">1954</div></div>
-        <div class="t-right"></div>
-      </div>
-      <div class="t-item reveal">
-        <div class="t-left"></div>
-        <div class="t-mid"><div class="t-node"></div><div class="t-year">1961</div></div>
-        <div class="t-right"><div class="t-card"><h3>Uhuru wa Tanganyika</h3><p>Tarehe 9 Desemba 1961, Tanganyika ilipata uhuru wake &mdash; siku iliyobadilisha historia ya Afrika Mashariki.</p></div></div>
-      </div>
-      <div class="t-item reveal">
-        <div class="t-left"><div class="t-card"><h3>Muungano wa Tanzania</h3><p>Tanganyika na Zanzibar zinaunganishwa mnamo 1964, kuunda Jamhuri ya Muungano wa Tanzania.</p></div></div>
-        <div class="t-mid"><div class="t-node"></div><div class="t-year">1964</div></div>
-        <div class="t-right"></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ═══ CONTACT ═══ -->
-<section id="contact" class="s-padding docs-bg" aria-labelledby="contact-title">
-  <div class="container">
-    <div class="contact-grid">
-      <div class="reveal r-left">
-        <div class="section-eyebrow">
-          <span class="s-eye-line" aria-hidden="true"></span>
-          <span class="s-eye-text">Press & Media Contact</span>
-        </div>
-        <h2 class="section-title" id="contact-title">Wasiliana<br><em>Nasi</em></h2>
-        <p class="section-body" style="margin-top: var(--space-5)">Tuma maoni, maswali au ushirikiano kupitia fomu au WhatsApp moja kwa moja.</p>
-
-        <div style="margin-top: var(--space-8)">
-          <div class="c-info-item">
-            <div class="c-info-icon"><i class="fa-solid fa-envelope" aria-hidden="true"></i></div>
-            <div>
-              <div class="c-info-title">Barua Pepe</div>
-              <div class="c-info-val"><a href="mailto:mohamedsaidsalum@gmail.com">mohamedsaidsalum@gmail.com</a></div>
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full z-50 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto flex justify-between items-center p-4">
+            <div class="flex items-center space-x-3">
+                <div class="w-12 h-12 rounded-full border border-gold/50 flex items-center justify-center bg-black/40 overflow-hidden">
+                    <img src="https://z-cdn-media.chatglm.cn/files/a10212fb-b3b0-4e14-bf49-7433a21451b6.png?auth_key=1886157284-ddde288d7d7548f28cde486d2e3da151-0-dcb206e2c766ce514a8d55305b533e45" alt="Mohamed Said" class="w-full h-full object-cover">
+                </div>
+                <div>
+                    <h1 class="font-serif text-lg font-bold text-white tracking-tight">Mohamed Said</h1>
+                    <p class="text-[10px] text-gold uppercase tracking-[0.3em] font-bold">Digital Archive</p>
+                </div>
             </div>
-          </div>
-          <div class="c-info-item">
-            <div class="c-info-icon"><i class="fa-solid fa-globe" aria-hidden="true"></i></div>
-            <div>
-              <div class="c-info-title">Website</div>
-              <div class="c-info-val"><a href="https://mohamedsaidsalum.blogspot.com/?m=1" target="_blank" rel="noopener noreferrer">mohamedsaidsalum.blogspot.com</a></div>
+            
+            <div class="hidden lg:flex items-center space-x-10 text-sm font-medium text-white/80">
+                <a href="#articles" class="hover:text-gold transition-colors">Articles</a>
+                <a href="#gallery" class="hover:text-gold transition-colors">Gallery</a>
+                <a href="#ai" class="hover:text-gold transition-colors">AI Historian</a>
+                <a href="#graph" class="hover:text-gold transition-colors">Knowledge Graph</a>
+                <button onclick="toggleCmdK()" class="flex items-center px-4 py-2 rounded-full bg-white/5 border border-white/10 text-white/50 text-sm hover:bg-white/10 transition-colors">
+                    <i class="fas fa-search mr-2 text-xs"></i> Search...
+                    <span class="ml-4 text-xs bg-white/10 px-2 py-0.5 rounded">Ctrl K</span>
+                </button>
             </div>
-          </div>
-          <div class="c-info-item">
-            <div class="c-info-icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></div>
-            <div>
-              <div class="c-info-title">WhatsApp / Phone</div>
-              <div class="c-info-val">Dar es Salaam, Tanzania</div>
-              <a href="https://wa.me/255687500699?text=Habari%20Mohamed%20Said,%20nina%20maoni:" target="_blank" rel="noopener noreferrer" class="btn-wa magnetic">
-                <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Tuma Ujumbe
-              </a>
+
+            <button onclick="toggleCmdK()" class="lg:hidden p-2 text-white">
+                <i class="fas fa-search text-xl"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Command Palette -->
+    <div id="cmdk" class="cmdk-overlay" onclick="if(event.target.id==='cmdk') toggleCmdK()">
+        <div class="w-full max-w-2xl bg-deepblue/90 border border-gold/20 rounded-2xl shadow-2xl overflow-hidden">
+            <div class="flex items-center border-b border-white/10 px-4">
+                <i class="fas fa-search w-5 h-5 text-gold/50 mr-3"></i>
+                <input type="text" id="cmdk-input" placeholder="Type a command or search documents..." class="w-full bg-transparent py-4 text-white placeholder-white/30 outline-none">
+                <button onclick="toggleCmdK()" class="text-xs text-white/40 bg-white/10 px-2 py-1 rounded">ESC</button>
             </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="contact-form-wrap reveal r-right">
-        <h3 class="form-title">Tuma Ujumbe</h3>
-        <form id="contactForm" aria-live="polite" novalidate>
-          <div class="form-row">
-            <div class="form-field">
-              <label for="name">Jina Lako <span aria-label="required">*</span></label>
-              <input type="text" id="name" name="name" placeholder="Jina lako kamili" required autocomplete="name" aria-required="true" />
+            <div class="p-2 max-h-[400px] overflow-y-auto">
+                <p class="text-gold/70 text-xs uppercase px-2 py-2">Navigation</p>
+                <a href="#articles" onclick="toggleCmdK()" class="flex items-center px-3 py-3 rounded-lg text-white/80 hover:bg-gold/10 cursor-pointer"><i class="fas fa-book-open w-4 h-4 mr-3 text-gold"></i> Read Historical Articles</a>
+                <a href="#gallery" onclick="toggleCmdK()" class="flex items-center px-3 py-3 rounded-lg text-white/80 hover:bg-gold/10 cursor-pointer"><i class="fas fa-images w-4 h-4 mr-3 text-gold"></i> Browse Gallery</a>
+                <a href="#ai" onclick="toggleCmdK()" class="flex items-center px-3 py-3 rounded-lg text-white/80 hover:bg-gold/10 cursor-pointer"><i class="fas fa-robot w-4 h-4 mr-3 text-gold"></i> Open AI Historian</a>
             </div>
-            <div class="form-field">
-              <label for="email">Barua Pepe <span aria-label="required">*</span></label>
-              <input type="email" id="email" name="email" placeholder="email@mfano.com" required autocomplete="email" aria-required="true" inputmode="email" />
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <div class="absolute inset-0 bg-gradient-to-br from-midnight via-deepblue to-midnight z-0"></div>
+        <div class="absolute z-0 w-[500px] h-[500px] bg-gold/10 rounded-full blur-[120px] top-1/4 left-1/4"></div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-12 px-6 py-16">
+            <!-- Left Side: Text -->
+            <div class="flex-1 text-center lg:text-left">
+                <div class="inline-flex items-center space-x-2 border border-gold/30 bg-gold/5 px-5 py-2 rounded-full text-gold text-xs font-bold uppercase tracking-widest mb-8 reveal">
+                    <span class="w-2 h-2 bg-gold rounded-full animate-pulse"></span>
+                    <span>Neural Historical Intelligence & AWS Cloud</span>
+                </div>
+
+                <h1 class="font-serif text-5xl md:text-7xl font-black text-white tracking-tight leading-none mb-8 reveal">
+                    The Archive of <br>
+                    <span class="holo-text italic font-normal">Mohamed Said</span>
+                </h1>
+
+                <p class="text-lg md:text-xl text-white/60 max-w-xl mx-auto lg:mx-0 mb-12 font-light reveal">
+                    Preserving East African History through Artificial Intelligence, AWS Cloud, and Advanced OCR Technology.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start reveal">
+                    <a href="#articles" class="px-10 py-4 rounded-full bg-gradient-to-r from-gold to-neongold text-midnight font-bold text-sm uppercase tracking-wider shadow-[0_0_30px_rgba(212,175,55,0.4)] flex items-center justify-center">
+                        Explore Archive <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                    <a href="#ai" class="px-10 py-4 rounded-full bg-white/5 border border-white/10 text-white font-bold text-sm uppercase tracking-wider hover:bg-white/10 transition-colors flex items-center justify-center">
+                        Ask AI Historian <i class="fas fa-robot ml-2"></i>
+                    </a>
+                </div>
             </div>
-          </div>
-          <div class="form-field">
-            <label for="subject">Mada</label>
-            <input type="text" id="subject" name="subject" placeholder="Mada ya ujumbe wako" autocomplete="off" />
-          </div>
-          <div class="form-field">
-            <label for="message">Ujumbe <span aria-label="required">*</span></label>
-            <textarea id="message" name="message" placeholder="Andika maoni au ujumbe wako hapa..." required aria-required="true" minlength="10"></textarea>
-          </div>
-          <button type="submit" class="btn-arch btn-arch-primary form-submit magnetic">
-            <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Tuma Ujumbe
-          </button>
-          <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
-        </form>
-      </div>
-    </div>
-  </div>
-</section>
-</main>
 
-<!-- ═══ PODCAST BANNER ═══ -->
-<section class="podcast-banner" aria-labelledby="podcast-title">
-  <div class="podcast-content">
-    <h2 id="podcast-title"><i class="fa-solid fa-podcast" aria-hidden="true"></i> Kutoka Maktaba ya Mohamed Said Podcast</h2>
-    <p>Skiza mihadhara, mahojiano na mijadala kuhusu historia, elimu na kumbukumbu za taifa</p>
-    <div class="podcast-tags">
-      <span>Knowledge</span>
-      <span>History</span>
-      <span>Dialogue</span>
-      <span>Digital Archive</span>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ FOOTER ═══ -->
-<footer class="footer" role="contentinfo">
-  <div class="container">
-    <div class="footer-grid">
-      <div>
-        <h3 class="f-brand-name">Mohamed Said</h3>
-        <p class="f-brand-desc">"Historia ni hazina ya taifa. Kuitunza ni kulinda utambulisho, maarifa na urithi wa vizazi vijavyo."</p>
-        <div class="f-socials">
-          <a href="https://www.facebook.com/share/1H1sezsZZ1/" target="_blank" rel="noopener noreferrer" class="f-social-btn magnetic" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
-          <a href="https://youtube.com/@samitungo?si=UhguoaDoiIZP0KIe" target="_blank" rel="noopener noreferrer" class="f-social-btn magnetic" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
-          <a href="https://x.com/mohamedsidney" target="_blank" rel="noopener noreferrer" class="f-social-btn magnetic" aria-label="X (Twitter)"><i class="fab fa-x-twitter" aria-hidden="true"></i></a>
-          <a href="https://wa.me/255687500699" target="_blank" rel="noopener noreferrer" class="f-social-btn magnetic" aria-label="WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+            <!-- Right Side: Featured Image -->
+            <div class="flex-1 reveal">
+                <div class="tilt-card glass-panel rounded-3xl p-4 overflow-hidden">
+                    <img src="https://z-cdn-media.chatglm.cn/files/d74bcba2-b36c-4773-baac-25be3d89aebe.jpg?auth_key=1886157284-d80b259c2acf43afb14abe69f0ce1ddc-0-e42e8fc9bee6fdbe9f482f40f1cf6d82" alt="Mohamed Said" class="rounded-2xl w-full h-[500px] object-cover shadow-2xl">
+                </div>
+            </div>
         </div>
-      </div>
-      <div>
-        <div class="f-col-title">Quick Links</div>
-        <div class="f-links">
-          <a href="#home">Nyumbani</a>
-          <a href="#about">Kuhusu</a>
-          <a href="#documents">Nyaraka</a>
-          <a href="#books">Vitabu</a>
-          <a href="#gallery">Picha</a>
-          <a href="#timeline">Historia</a>
+    </header>
+
+    <!-- NEW SECTION: Historical Articles & Manuscripts -->
+    <section id="articles" class="py-32 px-6 max-w-5xl mx-auto">
+        <div class="text-center mb-16 reveal">
+            <span class="text-gold uppercase tracking-[0.3em] text-xs font-bold block mb-4">Digitalized Manuscripts</span>
+            <h2 class="text-4xl md:text-5xl font-serif font-bold text-white">Historical Articles & Extracts</h2>
+            <p class="text-white/50 mt-4 max-w-2xl mx-auto">Read rare historical accounts and narratives surrounding the Tanganyika independence movement and the Maji Maji war.</p>
         </div>
-      </div>
-      <div>
-        <div class="f-col-title">Wasiliano</div>
-        <div class="f-links">
-          <a href="mailto:mohamedsaidsalum@gmail.com">mohamedsaidsalum@gmail.com</a>
-          <a href="https://wa.me/255687500699" target="_blank" rel="noopener noreferrer">+255 687 500 699</a>
-          <a href="https://x.com/mohamedsidney" target="_blank" rel="noopener noreferrer">@mohamedsidney</a>
-          <a href="https://mohamedsaidsalum.blogspot.com/?m=1" target="_blank" rel="noopener noreferrer">Official Blog</a>
+
+        <div class="space-y-4 reveal-stagger">
+            
+            <!-- Article 1: Padri Yohannes -->
+            <div class="accordion-item glass-panel rounded-2xl overflow-hidden">
+                <button onclick="toggleAccordion(this)" class="w-full flex justify-between items-center p-6 text-left">
+                    <div class="flex items-center">
+                        <i class="fas fa-file-pdf text-gold text-2xl mr-4"></i>
+                        <div>
+                            <h3 class="font-bold text-white text-lg">Padri Yohannes Hafliger Wa Peramiho Na Ubatizo Wa Majemadari Wa Vita Vya Maji Maji Songea</h3>
+                            <p class="text-white/40 text-sm mt-1">Topic: Maji Maji War & Religious Conversion</p>
+                        </div>
+                    </div>
+                    <i class="fas fa-plus accordion-icon text-gold text-xl"></i>
+                </button>
+                <div class="accordion-content px-6 pb-6 text-justify-custom text-white/70 text-sm md:text-base">
+                    <p>Kwa mara ya kwanza nilitembelea makumbusho hayo mwishoni mwaka 2007. Baada ya kusaini kitabu cha wageni na kulipa ada ya kituo muhudumu wa kituo hicho alitupa karatasi yenye orodha ya majina ya wale wote walionyongwa na kuzikwa hapo. Ukiitazama orodha hiyo na hasa ukiwa Mwislam jambo moja litakustua. Robo tatu ya walionyongwa na kuzikwa hapo ni Waislamu. Linaanza jina lake la Kiislamu, kisha kwenye mabano kuna jina la Kikristo na mwishoni linaishia jina la kiasili, mfano Abdulrahman [Dominic] Mputa Gama.</p>
+                    <br>
+                    <p>Muhudumu akatueleza kuwa hawa mashujaa wa vita vya Maji Maji kabla ya kunyongwa alikuwako padri ambaye aliwabatiza na kuwapa majina ya Kikristo na baadaye kunyongwa. Wengi walibatizwa kwa hadaa kuwa wakibatizwa wataachiwa huru; wote katika hao walionyongwa walikuwa ni Waislamu. Uzuri ni kwamba katika orodha hiyo kulikuwa na jina na sahihi ya yule padri aliyewabatiza, na kwa mkono wake [huyo padri] aliyaandika hayo majina. Karatasi yenyewe ilihifadhiwa vizuri kwenye fremu ngumu ya kioo. Tuliomba kwa nguvu zote kupatiwa hiyo karatasi ya majina hata kwa kununua lakini haikuwezekana pamoja na kuwaona wakubwa wa kituo hicho. Niliporudi kwa mara ya pili mwezi July 2009 nilipata mstuko.</p>
+                    <br>
+                    <p>Karatasi iliyohifadhiwa kwenye fremu ngumu ya kioo, iliyokuwa na majina ya Kiislamu ya mashujaa wa vita vya Maji Maji, haikuwapo, na badala yake imewekwa karatasi nyingine ambayo ndani yake majina ya Kiislamu ya mashujaa hao yameondolewa na kuachwa majina ya ubatizo na yale ya kiasili tu. Jina la padri, sahihi yake na wadhifa wake katika Kanisa Katoliki pia vimeondolewa, na karatasi yenyewe haikuwa kwenye fremu ya kioo ilikuwa katika fotokopi tu.</p>
+                    <br>
+                    <p>Nilimuuliza muhudumu likoni? Akasema, “Songea pana mzee mmoja maarufu sana katika historia ya TANU na historia ya kuanzishwa BAKWATA anaitwa kwa kifupi M.S. Mzee huyu ana binti yake ambaye ameolewa na Mzungu wa Kijerumani. Binti huyu na mumewe wa Kijerumani walikuja hapa Songea matembezi. Hivyo kwa shinikizo la huyu mzee M.S. karatasi hiyo alipewa huyu Mzungu kwa ahadi kwamba anaipeleka Ujerumani na atairudisha. Hivyo ndivyo karatasi ile asilia ilivyotoweka.” Kubwa katika karatasi ile ni ule ushahidi wa majina kuwa wote katika wale walionyongwa na kuzikwa hapo ni Waislamu. Wengi katika hao walihadaiwa kuachwa huru hivyo wakabatizwa isipokuwa wachache sana waligoma kama shujaa Abdulrauf Songea Mbano. Huyu kwa ushujaa wake wa kupambana na Wajerumani aligoma na akasumbua sana kiasi akanyongwa siku yake na peke yake na ndio sababu akazikwa peke yake.</p>
+                </div>
+            </div>
+
+            <!-- Article 2: Mama Daisy -->
+            <div class="accordion-item glass-panel rounded-2xl overflow-hidden">
+                <button onclick="toggleAccordion(this)" class="w-full flex justify-between items-center p-6 text-left">
+                    <div class="flex items-center">
+                        <i class="fas fa-file-pdf text-gold text-2xl mr-4"></i>
+                        <div>
+                            <h3 class="font-bold text-white text-lg">Simulizi za Mama Daisy (Bi Mwamvua Bint Mrisho Mke Wa Abdulwahid Sykes)</h3>
+                            <p class="text-white/40 text-sm mt-1">Topic: TANU, Nyerere's UNO Trip & Secret Financiers</p>
+                        </div>
+                    </div>
+                    <i class="fas fa-plus accordion-icon text-gold text-xl"></i>
+                </button>
+                <div class="accordion-content px-6 pb-6 text-justify-custom text-white/70 text-sm md:text-base">
+                    <p>Kuna jambo moja nimewahi kuelelezwa na Bi. Mwamvua bint Mrisho maarufu kwa jina la Mama Daisy. Wakati huu alikuwa akiishi Ali Hassan Mwinyi Road. Ningependa ulizingatie na ufanye utafiti zaidi. Bi Mwamvua aliniambia kuwa siku moja wakati mipango ya Mwalimu safari ya kwanza UNO ikikaribia kukamilika kulikuwa na upungufu wa pesa za safari. Siku moja jioni mabwana watatu wa TANU, walikuja nyumbani kwetu Mtaa wa Stanley kama kawaida yao ifikapo jioni. Walikuwa na kawaida ya kuja kwa ajili ya kupata chai na kufanya mazungumzo yao mengine. Mabwana hao ni pamoja na mume wangu Abdulwahid, Mwalimu Nyerere, Dossa Aziz na Hamza Mwapachu. Hata hivyo ujio wao kwa siku hiyo haukuwa wa kawaida. Nyuso zao hazikuwa zenye tabasamu na bashasha ya kawaida. Bwana Abdul akaingia chumbani kwetu moja kwa moja.</p>
+                    <br>
+                    <p>Nikainuka na kumfuata ndani kama ilivyo ada ya mke na mumewe. Nilipoingia nikamuliza, "Je kuna salama Bwana Abdul?" Akaniambia, "Salama kama si salama. Kuna tatizo la nauli ya Nyerere kwenda UNO fedha bado hazijatimia." Bwana Abdul akaniuliza kama nina akiba ya pesa ndani nimkopeshe. Nikamjibu sina akiba ya pesa ila naweza kuwaelekeza wapi mtaweza kwenda na kupata nyongeza ya pesa. Bi Mwamvua akamwambia, "Ikiwa utatoka wewe na Dossa, nendeni New Street kuna bibi mmoja wa Kimanyema, muuza Uji na vitumbua anaitwa Mtumwa Kitete." Bi Mwamvua anasema nyumba yake ilikuwa mahali ulipotobolewa Mtaa wa Mkunguni na New Street ndipo ilipokuwa nyumba yake akiishi hapo.</p>
+                    <br>
+                    <p>Mama Daisy anasema wakatoka Dossa na Abdul wakaenda hadi kwa Bi. Mtumwa wakaingia ndani na kuzungumza naye. Akaingia chumbani mwake na kutoka na pesa akawapa. Bi Mwamvua akasema kuwa ikapendekezwa na wanawake kuwa Nyerere atakaporudi Bi. Mtumwa ndiye atakaemvika kitambi Nyerere akiwa Uwanja wa Ndege. Mama Daisy anasema ikazuka fitna kubwa ya watu kuhoji kwa nini iwe Bi. Mtumwa Kitete apewe heshima hiyo na si wengine? Ndipo siri hiyo ya Bi. Mtumwa kutoa fedha nyingi kwa safari ya Nyerere UNO ilipofichuliwa. Bi Mwamvua anasema yeye ndiye aliyekuwa Mwenyekiti wa Kwanza wa Wanawake Mkoa wa Dar es Salaam. Maneno haya ameyasema mbele yangu nikiwa na mtangazaji mmoja wa Radio Uhuru, Angel Akilimali, ambaye nilifuatana naye siku hiyo katika kuandaa kipindi cha Bi Mwamvua.</p>
+                    <br>
+                    <p>Bi. Mwamvua siku hiyo hiyo, akanipeleka nyumbani kwa mpiga picha wa Ikulu Adarsh Nayar aliyekuwa akiishi jengo hilo alilokuwa akiishi Bi. Mwamvua hapo Upanga. Mtaa wa Lumumba barabara ilipokuwa inapanuliwa na nyumba zilizoipa mgongo Mnazi Mmoja kuvunjwa nyumba ya Bi. Mtumwa ilikuwa Mtaa wa Mkunguni ilivunjwa ili ipite barabara ya Mkunguni kuelekea Soko Mjinga ikikata barabara ambayo leo inakata Bibi Titi Street. Bi. Mtumwa akapewa kiwanja Mwananyamala.</p>
+                </div>
+            </div>
+
+            <!-- Article 3: Kasella Bantu -->
+            <div class="accordion-item glass-panel rounded-2xl overflow-hidden">
+                <button onclick="toggleAccordion(this)" class="w-full flex justify-between items-center p-6 text-left">
+                    <div class="flex items-center">
+                        <i class="fas fa-file-pdf text-gold text-2xl mr-4"></i>
+                        <div>
+                            <h3 class="font-bold text-white text-lg">Now You See Him Now You Don't: Joseph Kasella Bantu Mkasa wa Picha ya Waasisi wa TANU 1954</h3>
+                            <p class="text-white/40 text-sm mt-1">Topic: Historical Photograph Manipulation</p>
+                        </div>
+                    </div>
+                    <i class="fas fa-plus accordion-icon text-gold text-xl"></i>
+                </button>
+                <div class="accordion-content px-6 pb-6 text-justify-custom text-white/70 text-sm md:text-base">
+                    <p>Miongo minne iliyopita... Hiyo makala "Now You See Him Now You Don't," yenye jina True Muslim huyo ni Mohamed Said. Makala haya yalichapwa kwenye jarida la New African (London) June 1985. Baada ya makala hii sikuficha tena jina langu. Hii makala Ally Sykes aliisoma na ilimgusa sana moyo wake. Sasa nilikuwa nimemueleza mwanae mmoja kuwa nimeandika makala hiyo na yeye akamueleza baba yake. Ally Sykes akamtuma mwanae aniite nikamuone. Hii ndiyo siku aliyoniahidi kunionyesha Nyaraka za Sykes.</p>
+                    <br>
+                    <p>Katika makala hiyo kuna picha mbili za waasisi wa TANU. Picha moja yumo Kasella Bantu na nyingine hayumo. Katika ile picha ambayo hayumo ile ndiyo picha yenyewe halisi na katika picha hiyo Ally Sykes, Tewa Said Tewa na Kasella Bantu walikaa pembeni kuhofia wasifukuzwe kazi na serikali kwa kuanzisha chama cha siasa. Kasella Bantu baada ya uhuru akapachika picha yake kati ya Abdulwahid Sykes na Dossa Aziz ili aonekane kuwa na yeye alikuwapo siku ile TANU inaasisiwa. Hapa ndipo lilipoanza tatizo la picha hii ya waasisi. Katika kitabu cha maisha ya Julius Nyerere kuna maelezo ya picha hii lakini inasikitisha kwani yamekosewa. Tatizo limezidi kuongezeka. Huu ndiyo msukosuko wa historia ya TANU na kupigania uhuru wa Tanganyika.</p>
+                </div>
+            </div>
+
+            <!-- Article 4: Bi Mwajame -->
+            <div class="accordion-item glass-panel rounded-2xl overflow-hidden">
+                <button onclick="toggleAccordion(this)" class="w-full flex justify-between items-center p-6 text-left">
+                    <div class="flex items-center">
+                        <i class="fas fa-file-pdf text-gold text-2xl mr-4"></i>
+                        <div>
+                            <h3 class="font-bold text-white text-lg">Asubuhi Moja Kigamboni Na Bi. Mwajame Bint Dossa Aziz (2023)</h3>
+                            <p class="text-white/40 text-sm mt-1">Topic: Dossa Aziz "The Bank" & 1964 Mutiny</p>
+                        </div>
+                    </div>
+                    <i class="fas fa-plus accordion-icon text-gold text-xl"></i>
+                </button>
+                <div class="accordion-content px-6 pb-6 text-justify-custom text-white/70 text-sm md:text-base">
+                    <p>Akituelekeza namna ya kufika nyumbani kwake Kigamboni leo asubuhi Bi. Mwajame bint Dossa Aziz akamaliza kwa kusema, "Ukifika hapo utaona kibao kimeandikwa 'Mwajame Street.'" Mpwa wangu Yusuf aliyekuwa ananiendesha akashtuka na kuzungumza na Bi. Mwajame akasema "Mjomba Mtaa una jina lake!" Hakika hata mimi nilishtuka. Bi. Mwajame ni mtoto wa Dossa Aziz.</p>
+                    <br>
+                    <p>Dossa Aziz ni katika wazalendo 17 waliounda TANU mwaka wa 1954 na kati ya wafadhili wakubwa wanne wa chama hicho: John Rupia, Dossa Aziz na ndugu wawili Abdul na Ally Sykes. Nimeshtuka kwa sababu juu ya makubwa ambayo baba yake kafanya katika kupigania uhuru wa Tanganyika hajatunukiwa mtaa si nyumbani kwao Gerezani wala popote pale. Iweje mwanae apewe mtaa? Yusuf Makamba kapewa mtaa jirani na alipozaliwa Dossa Mtaa wa Mbaruku na Congo na waliotoa mtaa huo kumpa Makamba ni kama vile hawamjui Dossa Aziz wala hawajapata kumsikia. Wewe nani umtangulie Dossa kupata mtaa?</p>
+                    <br>
+                    <p>Dossa Aziz katika siku za mwanzo kabisa za kupigania uhuru katoa gari yake kumpa Mwalimu Nyerere imsaidie katika kufanikisha majukumu yake kama President wa TANU. Kasahauliwa. Hana mtaa wala chochote cha kuonyesha kutoka nchini kwake na kutoka chama alichokiunda na kukifadhili. Dossa hakupewa hata mtaa. Mwanae Mwajame kapewa mtaa Kigamboni. Hakika nilistaajabu sana. Haya mambo yakoje? Wakati wake Dossa walimpa lakabu wakimwita "The Bank." Huendi benki ukaambiwa fedha zimekwisha njoo kesho. Hana mtaa kwao Gerezani.</p>
+                    <br>
+                    <p>Da Mwajame anasema mtaa ule hakuupata kwa kutumia mgongo wa baba yake. "Mimi nilipigiwa simu na Mwenyekiti wa Mtaa kuelezwa kuwa jina langu limepewa mtaa ninaokaa kwa kuwa mimi ni mkazi wa zamani kupita wote. Baada ya kupewa mtaa ndipo niliposikia wakimtaja baba yangu kuwa alikuwa mfadhili wa TANU na rafiki wa Nyerere." Bi. Mwajame anakumbuka maasi ya Tanganyika Rifles mwaka 1964 na simanzi iliomfika baba yake. Wakati huo Dossa akiishi shambani kwake Ruvu.</p>
+                    <br>
+                    <p>"Baba kaja nyumbani Mtoni kwa Aziz Ali na mkewe Bi. Nagla anaendesha Land-rover akamweleza bibi kuwa kumetokea maasi ya wanajeshi na Nyerere kapotea hajulikani alipo. Baba akasema kuwa anamwacha mkewe hapo yeye anakwenda kumtafuta Nyerere. Kwanza Bi. Nagla akasema yeye hakubali Dossa aende peke yake lazima awe na yeye. Bibi akamuuliza baba, 'Dossa utampata wapi Nyerere na vurugu hili?' Baba akawa anabishana na mama anamwambia, 'Nagla utaniponyza tukamatwe sote wanajeshi wanakamata Wahindi na Waarabu.' (Bi. Nagla alikuwa kachanganya damu). Mwishowe baba na mama wote wakaondoka. Siku nzima nyumba nzima ilikuwa na simanzi wakihofia maisha ya Nyerere na ya baba aliyekwenda kumtafuta rafiki yake. Usiku baba alirudi nyumbani peke yake hoi kachoka akamweleza bibi kuwa Nyerere yuko salama."</p>
+                    <br>
+                    <p>"Yuko salama wapi?" Bibi anataka kujua. Baba hakumwambia yeye kashikilia tu kuwa Nyerere mzima yuko salama. Baba alisimamishwa mara mbili na wanajeshi wakati anatoka Mtoni. Alisimamishwa makutano ya Pugu Road na Msimbazi karibu na ofisi za mabasi ya DMT yaani Dar-es-Salaam Motor Transport na makutano ya Msimbazi na Kitchwele. Kote aliachiwa kupita bila matatizo wale wanajeshi wakisema, "Dossa huyo mwacheni apite." Hakuna ambaye hakuwa anajua uhusiano na Dossa Aziz na Nyerere. Lakini baba anasema aliona magari mengi pembeni ya barabara yametobolewa matairi. Ilikuwa wazi wanajeshi hawakutaka kuona magari barabarani.</p>
+                    <br>
+                    <p>Nyerere wakati wa kupigania uhuru hata kazi ya ualimu hajaacha alikuwa akija nyumbani Mtaa wa Mbaruku na Congo na Abdul na Ally Sykes wakati mwingine akilala pale. Kama atalala nyumbani chumba chake kilikuwa cha kaka yangu Ali Aziz na Ali atakwenda kulala kwengine kwani alikuwa mtoto bado yuko shule. Nilikuja kujua baadaye kuwa baba katika fikra zake alikuwa anadhani Nyerere kwa kuwa hayuko Government House atakuwa kaenda kujificha Ruvu shambani kwake ambako wakati wa kupigania uhuru walijenga handaki endapo itabidi kujificha. Nimemuuliza baba mara nyingi wapi Nyerere alijificha wakati wa maasi lakini baba alikataa kuniambia. Nikimgharibia kutaka aniambie akasema, "Mwajame una maswali kama askari."</p>
+                </div>
+            </div>
+
         </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span class="footer-copy">&copy; 2026 Mohamed Said Digital Historical Archive. All Rights Reserved.</span>
-      <span class="footer-copy">KUHIFADHI HISTORIA &middot; KUKUZA MAARIFA &middot; KULINDA KUMBUKUMBU ZA TAIFA</span>
-    </div>
-  </div>
-</footer>
+    </section>
 
-<!-- Floating Elements -->
-<a href="https://wa.me/255687500699?text=Habari%20Mohamed%20Said," target="_blank" rel="noopener noreferrer" class="float-wa magnetic" aria-label="WhatsApp Chat">
-  <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
-</a>
-<button id="backToTop" aria-label="Back to top" type="button">
-  <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
-</button>
+    <!-- Rare Historical Gallery -->
+    <section id="gallery" class="py-32 px-6 max-w-7xl mx-auto">
+        <div class="text-center mb-16 reveal">
+            <span class="text-gold uppercase tracking-[0.3em] text-xs font-bold block mb-4">Visual Archive</span>
+            <h2 class="text-4xl md:text-5xl font-serif font-bold text-white">Rare Historical Figures & Events</h2>
+            <p class="text-white/50 mt-4 max-w-2xl mx-auto">Explore curated photographs from the archive.</p>
+        </div>
 
-<script>
-// ═══════════════════════════════════════════════════════════════
-// GLOBAL LIGHTBOX HELPER (for onclick handlers)
-// ═══════════════════════════════════════════════════════════════
-function openLightbox(el) {
-  const img = el.querySelector('img');
-  if (!img) return;
-  const lb = document.getElementById('lightbox');
-  const lbImg = document.getElementById('lbImg');
-  if (!lb || !lbImg) return;
-  lbImg.src = img.src;
-  lbImg.alt = img.alt;
-  lb.setAttribute('open', '');
-  lb.setAttribute('aria-hidden', 'false');
-  document.body.style.overflow = 'hidden';
-  const closeBtn = document.getElementById('lbClose');
-  if (closeBtn) setTimeout(() => closeBtn.focus(), 100);
-}
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 reveal-stagger">
+            <!-- Nyerere -->
+            <div class="tilt-card glass-panel rounded-2xl overflow-hidden flex flex-col">
+                <div class="h-60 overflow-hidden">
+                    <img src="https://z-cdn-media.chatglm.cn/files/46794e4a-7b2c-48fc-9268-68266d0e092d.jpg?auth_key=1886157284-b64d22c3b1f9494b9b48988313971237-0-6473b01ae7ba49bbccdb420090557493" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" alt="Julius Nyerere">
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="font-bold text-white text-xl mb-2">Julius Kambarage Nyerere</h3>
+                    <p class="text-white/50 text-sm mb-6 flex-grow">Father of the Nation and first President of Tanganyika.</p>
+                    <button class="mt-auto w-full py-3 rounded-lg border border-gold/50 text-gold hover:bg-gold hover:text-midnight transition-all font-bold text-xs uppercase tracking-wider">View Details</button>
+                </div>
+            </div>
 
-// ═══════════════════════════════════════════════════════════════
-// MOHAMED SAID ARCHIVE — CORE SCRIPT
-// ═══════════════════════════════════════════════════════════════
+            <!-- Victor Mkello -->
+            <div class="tilt-card glass-panel rounded-2xl overflow-hidden flex flex-col">
+                <div class="h-60 overflow-hidden">
+                    <img src="https://z-cdn-media.chatglm.cn/files/357754e7-e752-4b65-a4da-8d7e8f8a7b8d.jpg?auth_key=1886157284-39e07f65a7974f369190c5758b1bbb5b-0-30d4b12cb2de4f4a65163145b8141712" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" alt="Victor Mkello">
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="font-bold text-white text-xl mb-2">Mzee Victor Mkello</h3>
+                    <p class="text-white/50 text-sm mb-6 flex-grow">Former Chairman of the Tanzanian Labour Union (Zanzibar Gov).</p>
+                    <button class="mt-auto w-full py-3 rounded-lg border border-gold/50 text-gold hover:bg-gold hover:text-midnight transition-all font-bold text-xs uppercase tracking-wider">View Details</button>
+                </div>
+            </div>
 
-const ARCHIVE = {
-  state: {
-    isLoaded: false,
-    isMenuOpen: false,
-    lastScroll: 0,
-    mouseX: 0, mouseY: 0,
-    ringX: 0, ringY: 0,
-    prefersReducedMotion: window.matchMedia('(prefers-reduced-motion: reduce)').matches,
-  },
+            <!-- Mohamed Omar Mkwawa -->
+            <div class="tilt-card glass-panel rounded-2xl overflow-hidden flex flex-col">
+                <div class="h-60 overflow-hidden">
+                    <img src="https://z-cdn-media.chatglm.cn/files/c723f391-408b-48fd-874f-2dc9e2819343.jpg?auth_key=1886157284-56bfd04b4b0e47189fa1696e52eb4bec-0-1a98c252c350ed1f5f506c7e21e7ee9f" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" alt="Mohamed Omar Mkwawa">
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="font-bold text-white text-xl mb-2">Mohamed Omar Mkwawa</h3>
+                    <p class="text-white/50 text-sm mb-6 flex-grow">Holding "Kwaheri Ukoloni, Kwaheri Uhuru" by Harith Ghassany.</p>
+                    <button class="mt-auto w-full py-3 rounded-lg border border-gold/50 text-gold hover:bg-gold hover:text-midnight transition-all font-bold text-xs uppercase tracking-wider">View Details</button>
+                </div>
+            </div>
 
-  dom: {},
+            <!-- Mohamed Abdilatif Abdalla -->
+            <div class="tilt-card glass-panel rounded-2xl overflow-hidden flex flex-col">
+                <div class="h-60 overflow-hidden">
+                    <img src="https://z-cdn-media.chatglm.cn/files/040a8aaa-d7ab-400e-be2e-e961fdaeeaca.jpg?auth_key=1886157284-63c49fa405834eea8ae6d0cd8bb92adb-0-aa821834064f7f172e98a8600ded35e9" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" alt="Mohamed Abdilatif Abdalla">
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="font-bold text-white text-xl mb-2">Mohamed Abdilatif Abdalla</h3>
+                    <p class="text-white/50 text-sm mb-6 flex-grow">A rare outdoor gathering of historical significance.</p>
+                    <button class="mt-auto w-full py-3 rounded-lg border border-gold/50 text-gold hover:bg-gold hover:text-midnight transition-all font-bold text-xs uppercase tracking-wider">View Details</button>
+                </div>
+            </div>
 
-  init() {
-    this.cacheDOM();
-    this.initPreloader();
-    this.initCursor();
-    this.initScroll();
-    this.initNavigation();
-    this.initReveal();
-    this.initCounters();
-    this.initLightbox();
-    this.initForm();
-    this.initTabs();
-    this.initMagnetic();
-  },
+            <!-- Rashid Makoko -->
+            <div class="tilt-card glass-panel rounded-2xl overflow-hidden flex flex-col">
+                <div class="h-60 overflow-hidden">
+                    <img src="https://z-cdn-media.chatglm.cn/files/8958a0e8-ae4e-4ead-b07c-920ba6c3e5bb.jpg?auth_key=1886157284-c033eec56b8d4a69ba7638648c170ce5-0-b9ac179ab52b7264a220ab52cf189976" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" alt="Rashid Makoko">
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="font-bold text-white text-xl mb-2">Rashid Makoko</h3>
+                    <p class="text-white/50 text-sm mb-6 flex-grow">A nostalgic social gathering captured in black and white.</p>
+                    <button class="mt-auto w-full py-3 rounded-lg border border-gold/50 text-gold hover:bg-gold hover:text-midnight transition-all font-bold text-xs uppercase tracking-wider">View Details</button>
+                </div>
+            </div>
 
-  cacheDOM() {
-    this.dom = {
-      preloader: document.getElementById('preloader'),
-      heroImgPanel: document.getElementById('heroImgPanel'),
-      header: document.getElementById('header'),
-      progressBar: document.getElementById('progress-bar'),
-      backToTop: document.getElementById('backToTop'),
-      menuToggle: document.getElementById('menuToggle'),
-      navbar: document.getElementById('navbar'),
-      cursorDot: document.getElementById('cursorDot'),
-      cursorRing: document.getElementById('cursorRing'),
-      lightbox: document.getElementById('lightbox'),
-      lbImg: document.getElementById('lbImg'),
-      lbClose: document.getElementById('lbClose'),
-      contactForm: document.getElementById('contactForm'),
-      formStatus: document.getElementById('formStatus'),
-      sections: document.querySelectorAll('section[id]'),
-      navLinks: document.querySelectorAll('#navbar a'),
-      revealElements: document.querySelectorAll('.reveal, .stagger'),
-      countElements: document.querySelectorAll('[data-count]'),
-      magneticElements: document.querySelectorAll('.magnetic'),
-      galleryItems: document.querySelectorAll('.gal-item'),
-    };
-  },
+            <!-- Sadiki Patwa -->
+            <div class="tilt-card glass-panel rounded-2xl overflow-hidden flex flex-col">
+                <div class="h-60 overflow-hidden">
+                    <img src="https://z-cdn-media.chatglm.cn/files/86259761-a7d0-4bc2-9966-6750067c309d.jpg?auth_key=1886157284-8bf71bbe55ae4f23b8d437669855014d-0-a0d8ab12a2664ccfdbf3b611f753f144" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" alt="Sadiki Patwa">
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="font-bold text-white text-xl mb-2">Sadiki Patwa</h3>
+                    <p class="text-white/50 text-sm mb-6 flex-grow">Historical meeting showing formal attire and discussions.</p>
+                    <button class="mt-auto w-full py-3 rounded-lg border border-gold/50 text-gold hover:bg-gold hover:text-midnight transition-all font-bold text-xs uppercase tracking-wider">View Details</button>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  initPreloader() {
-    if (this.state.prefersReducedMotion) {
-      this.dom.preloader?.setAttribute('hidden', '');
-      this.dom.heroImgPanel?.classList.add('loaded');
-      return;
-    }
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        this.dom.preloader?.setAttribute('hidden', '');
-        this.dom.heroImgPanel?.classList.add('loaded');
-        this.state.isLoaded = true;
-      }, 800);
-    });
-  },
+    <!-- AI Historian Section -->
+    <section id="ai" class="py-32 px-6 max-w-5xl mx-auto">
+        <div class="glass-panel rounded-[40px] p-10 md:p-16 reveal">
+            <div class="flex items-center mb-10">
+                <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-gold to-neongold flex items-center justify-center mr-6 shadow-[0_0_20px_rgba(212,175,55,0.4)]">
+                    <i class="fas fa-robot text-2xl text-midnight"></i>
+                </div>
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-white">AI Historian (RAG)</h2>
+                    <p class="text-white/50 text-sm">Powered by Retrieval-Augmented Generation</p>
+                </div>
+            </div>
 
-  initCursor() {
-    if (this.state.prefersReducedMotion || window.matchMedia('(pointer: coarse)').matches) {
-      this.dom.cursorDot?.style.setProperty('display', 'none');
-      this.dom.cursorRing?.style.setProperty('display', 'none');
-      return;
-    }
-    const { cursorDot, cursorRing } = this.dom;
-    if (!cursorDot || !cursorRing) return;
-    let rafId;
-    const onMove = (e) => {
-      this.state.mouseX = e.clientX;
-      this.state.mouseY = e.clientY;
-      cursorDot.style.transform = `translate(${this.state.mouseX}px, ${this.state.mouseY}px)`;
-    };
-    const animateRing = () => {
-      this.state.ringX += (this.state.mouseX - this.state.ringX) * 0.15;
-      this.state.ringY += (this.state.mouseY - this.state.ringY) * 0.15;
-      cursorRing.style.transform = `translate(${this.state.ringX}px, ${this.state.ringY}px)`;
-      rafId = requestAnimationFrame(animateRing);
-    };
-    document.addEventListener('mousemove', onMove, { passive: true });
-    rafId = requestAnimationFrame(animateRing);
-    const sel = 'a, button, .magnetic, .book-card, .tilt-card, .tag, .gal-item, .f-social-btn';
-    document.querySelectorAll(sel).forEach(el => {
-      el.addEventListener('mouseenter', () => cursorRing.classList.add('expand'));
-      el.addEventListener('mouseleave', () => cursorRing.classList.remove('expand'));
-    });
-  },
+            <div class="flex gap-4 mb-8">
+                <input type="text" placeholder="Ask about Dossa Aziz, Kasella Bantu, or Mama Daisy..." class="flex-1 px-6 py-4 rounded-xl bg-black/40 border border-gold/20 text-white placeholder-white/30 focus:outline-none focus:border-gold/60 transition-colors">
+                <button class="px-8 py-4 rounded-xl bg-gold text-midnight font-bold flex items-center hover:bg-neongold transition-colors">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
 
-  initScroll() {
-    const { header, progressBar, backToTop, sections, navLinks } = this.dom;
-    let ticking = false;
-    const onScroll = () => {
-      const winScroll = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = docHeight > 0 ? (winScroll / docHeight) * 100 : 0;
-      if (progressBar) {
-        progressBar.style.width = `${progress}%`;
-        progressBar.setAttribute('aria-valuenow', Math.round(progress));
-      }
-      header?.classList.toggle('scrolled', winScroll > 60);
-      backToTop?.classList.toggle('vis', winScroll > 400);
-      let current = '';
-      sections.forEach(s => { if (winScroll >= s.offsetTop - 120) current = s.id; });
-      navLinks.forEach(a => {
-        const isActive = a.getAttribute('href') === `#${current}`;
-        a.classList.toggle('active', isActive);
-        a.setAttribute('aria-current', isActive ? 'page' : 'false');
-      });
-      this.state.lastScroll = winScroll;
-      ticking = false;
-    };
-    window.addEventListener('scroll', () => {
-      if (!ticking) { requestAnimationFrame(onScroll); ticking = true; }
-    }, { passive: true });
-    backToTop?.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: this.state.prefersReducedMotion ? 'auto' : 'smooth' });
-    });
-  },
+            <div class="bg-black/40 border-l-4 border-gold p-6 rounded-r-xl">
+                <div class="flex justify-between items-start mb-4">
+                    <p class="text-white/80 leading-relaxed flex-1">According to historical archives, Dossa Aziz was a key financier of TANU, famously known as "The Bank." During the 1964 Tanganyika Rifles mutiny, he risked his life to search for Julius Nyerere, leveraging his widespread respect even among the mutinying soldiers who let him pass freely through checkpoints.</p>
+                    <div class="flex items-center ml-4 text-xs text-green-400 bg-green-400/10 px-3 py-1 rounded-full border border-green-400/20">
+                        <i class="fas fa-shield-halved mr-1"></i> 98.5% Match
+                    </div>
+                </div>
+                <div class="mt-6 pt-4 border-t border-white/10">
+                    <h4 class="text-xs uppercase tracking-widest text-gold mb-3 font-bold">Sources & Citations</h4>
+                    <div class="flex flex-wrap gap-3">
+                        <div class="flex items-center bg-zinc-800/50 border border-white/5 px-3 py-2 rounded-lg text-xs text-white/70 hover:border-gold/30 cursor-pointer transition-colors">
+                            <i class="fas fa-file-text text-gold mr-2"></i> Bi_Mwajame_Dossa_Aziz_2023.pdf <span class="mx-2 text-white/20">|</span> Pg. 2
+                        </div>
+                        <div class="flex items-center bg-zinc-800/50 border border-white/5 px-3 py-2 rounded-lg text-xs text-white/70 hover:border-gold/30 cursor-pointer transition-colors">
+                            <i class="fas fa-file-text text-gold mr-2"></i> Simulizi_za_Mama_Daisy.pdf <span class="mx-2 text-white/20">|</span> Pg. 1
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  initNavigation() {
-    const { menuToggle, navbar } = this.dom;
-    if (!menuToggle || !navbar) return;
-    const toggleMenu = () => {
-      this.state.isMenuOpen = !this.state.isMenuOpen;
-      navbar.classList.toggle('open', this.state.isMenuOpen);
-      menuToggle.setAttribute('aria-expanded', String(this.state.isMenuOpen));
-      menuToggle.innerHTML = `<i class="fa-solid ${this.state.isMenuOpen ? 'fa-xmark' : 'fa-bars'}" aria-hidden="true"></i>`;
-      document.body.style.overflow = this.state.isMenuOpen ? 'hidden' : '';
-    };
-    menuToggle.addEventListener('click', toggleMenu);
-    navbar.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => { if (this.state.isMenuOpen) toggleMenu(); });
-    });
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && this.state.isMenuOpen) toggleMenu();
-    });
-  },
+    <!-- AWS S3 Archive Vault -->
+    <section id="archive" class="py-32 px-6 max-w-7xl mx-auto">
+        <div class="text-center mb-16 reveal">
+            <span class="text-gold uppercase tracking-[0.3em] text-xs font-bold block mb-4">AWS Cloud S3 Gateway</span>
+            <h2 class="text-4xl md:text-5xl font-serif font-bold text-white">Historical Document Vault</h2>
+        </div>
 
-  initReveal() {
-    if (this.state.prefersReducedMotion) {
-      this.dom.revealElements.forEach(el => el.classList.add('active'));
-      return;
-    }
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-          observer.unobserve(entry.target);
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 reveal-stagger">
+            <!-- File Cards -->
+            <div class="tilt-card glass-panel rounded-2xl p-6 flex flex-col">
+                <div class="flex items-start justify-between mb-6">
+                    <div class="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center border border-gold/20">
+                        <i class="fas fa-file-pdf text-gold text-xl"></i>
+                    </div>
+                    <i class="fab fa-aws text-white/20 text-3xl"></i>
+                </div>
+                <h3 class="font-bold text-white text-base mb-2 truncate">Padri_Yohannes_Hafliger.pdf</h3>
+                <p class="text-white/40 text-xs mb-6">2.1 MB • AWS S3</p>
+                <button class="mt-auto w-full py-3 rounded-lg border border-gold/50 text-gold hover:bg-gold hover:text-midnight transition-all font-bold text-xs uppercase tracking-wider">
+                    View Document
+                </button>
+            </div>
+            
+            <div class="tilt-card glass-panel rounded-2xl p-6 flex flex-col">
+                <div class="flex items-start justify-between mb-6">
+                    <div class="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center border border-gold/20">
+                        <i class="fas fa-file-pdf text-gold text-xl"></i>
+                    </div>
+                    <i class="fab fa-aws text-white/20 text-3xl"></i>
+                </div>
+                <h3 class="font-bold text-white text-base mb-2 truncate">Simulizi_za_Mama_Daisy.pdf</h3>
+                <p class="text-white/40 text-xs mb-6">1.8 MB • AWS S3</p>
+                <button class="mt-auto w-full py-3 rounded-lg border border-gold/50 text-gold hover:bg-gold hover:text-midnight transition-all font-bold text-xs uppercase tracking-wider">
+                    View Document
+                </button>
+            </div>
+
+            <div class="tilt-card glass-panel rounded-2xl p-6 flex flex-col">
+                <div class="flex items-start justify-between mb-6">
+                    <div class="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center border border-gold/20">
+                        <i class="fas fa-file-pdf text-gold text-xl"></i>
+                    </div>
+                    <i class="fab fa-aws text-white/20 text-3xl"></i>
+                </div>
+                <h3 class="font-bold text-white text-base mb-2 truncate">Now_You_See_Him_Dont.pdf</h3>
+                <p class="text-white/40 text-xs mb-6">1.2 MB • AWS S3</p>
+                <button class="mt-auto w-full py-3 rounded-lg border border-gold/50 text-gold hover:bg-gold hover:text-midnight transition-all font-bold text-xs uppercase tracking-wider">
+                    View Document
+                </button>
+            </div>
+
+            <div class="tilt-card glass-panel rounded-2xl p-6 flex flex-col">
+                <div class="flex items-start justify-between mb-6">
+                    <div class="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center border border-gold/20">
+                        <i class="fas fa-file-pdf text-gold text-xl"></i>
+                    </div>
+                    <i class="fab fa-aws text-white/20 text-3xl"></i>
+                </div>
+                <h3 class="font-bold text-white text-base mb-2 truncate">Bi_Mwajame_Dossa_Aziz.pdf</h3>
+                <p class="text-white/40 text-xs mb-6">3.4 MB • AWS S3</p>
+                <button class="mt-auto w-full py-3 rounded-lg border border-gold/50 text-gold hover:bg-gold hover:text-midnight transition-all font-bold text-xs uppercase tracking-wider">
+                    View Document
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA: Commemorative Book -->
+    <section class="py-32 px-6">
+        <div class="relative max-w-7xl mx-auto rounded-3xl overflow-hidden reveal">
+            <img src="https://z-cdn-media.chatglm.cn/files/02c78670-89ab-417d-950b-ae7d809b1e51.jpg?auth_key=1886157284-4880ddf6582741a9a7355f0c2c7dfb2d-0-6f0315a64e6ac18dc1fbaa97d858a6a3" alt="Abdulwahid Sykes Commemorative Book" class="absolute inset-0 w-full h-full object-cover opacity-20">
+            <div class="absolute inset-0 bg-gradient-to-r from-midnight via-midnight/80 to-transparent"></div>
+            
+            <div class="relative z-10 p-12 md:p-20 max-w-2xl">
+                <span class="text-gold uppercase tracking-[0.3em] text-xs font-bold block mb-4">Commemorative Book</span>
+                <h2 class="text-4xl md:text-5xl font-serif font-bold text-white mb-6">Abdulwahid Sykes</h2>
+                <p class="text-white/60 text-lg mb-8">A rare visual record of the Sykes family's contribution to the Tanganyika independence movement. Explore high-resolution pages of this commemorative edition.</p>
+                <button class="px-8 py-4 rounded-full bg-gold text-midnight font-bold text-sm uppercase tracking-wider hover:bg-neongold transition-colors flex items-center">
+                    Read Book <i class="fas fa-book-open ml-2"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Knowledge Graph Mockup -->
+    <section id="graph" class="py-32 px-6 max-w-7xl mx-auto">
+        <div class="text-center mb-16 reveal">
+            <span class="text-gold uppercase tracking-[0.3em] text-xs font-bold block mb-4">Interactive AI Graph</span>
+            <h2 class="text-4xl md:text-5xl font-serif font-bold text-white">Historical Network</h2>
+        </div>
+
+        <div class="relative h-[500px] glass-panel rounded-3xl overflow-hidden reveal">
+            <!-- SVG Lines -->
+            <svg class="absolute inset-0 w-full h-full pointer-events-none">
+                <line x1="20%" y1="30%" x2="50%" y2="50%" stroke="rgba(212, 175, 55, 0.5)" stroke-width="2" />
+                <line x1="50%" y1="50%" x2="80%" y2="30%" stroke="rgba(212, 175, 55, 0.5)" stroke-width="2" />
+                <line x1="50%" y1="50%" x2="30%" y2="80%" stroke="rgba(212, 175, 55, 0.3)" stroke-width="1" />
+                <line x1="50%" y1="50%" x2="70%" y2="80%" stroke="rgba(212, 175, 55, 0.3)" stroke-width="1" />
+            </svg>
+            
+            <!-- Nodes -->
+            <div class="absolute top-[20%] left-[15%] px-4 py-2 bg-deepblue/80 border border-gold text-gold rounded-xl font-bold text-sm shadow-[0_0_15px_rgba(212,175,55,0.2)]">TANU (1954)</div>
+            <div class="absolute top-[70%] left-[25%] px-4 py-2 bg-deepblue/80 border border-gold/50 text-white rounded-xl text-sm">Abdulwahid Sykes</div>
+            <div class="absolute top-[40%] left-[45%] px-6 py-3 bg-deepblue/80 border border-neongold text-neongold rounded-xl font-bold shadow-[0_0_30px_rgba(244,196,48,0.4)]">Julius Nyerere</div>
+            <div class="absolute top-[20%] left-[70%] px-4 py-2 bg-deepblue/80 border border-gold/50 text-white rounded-xl text-sm">Dossa Aziz (The Bank)</div>
+            <div class="absolute top-[70%] left-[65%] px-4 py-2 bg-deepblue/80 border border-gold/50 text-white rounded-xl text-sm">Mama Daisy / Kasella Bantu</div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-gold/10 py-16 mt-20">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <div class="flex justify-center space-x-6 mb-8 text-2xl text-white/50">
+                <a href="#" class="hover:text-gold transition-colors"><i class="fab fa-aws"></i></a>
+                <a href="#" class="hover:text-red-600 transition-colors"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="hover:text-gold transition-colors"><i class="fas fa-database"></i></a>
+            </div>
+            <h2 class="text-2xl font-serif font-bold text-white">Mohamed Said Digital Historical Archive</h2>
+            <p class="mt-4 text-white/40 text-sm">Preserving East African History through Artificial Intelligence.</p>
+            <p class="mt-8 text-xs text-white/30">&copy; 2026 Mohamed Said Archive. Powered by Neural RAG.</p>
+        </div>
+    </footer>
+
+    <script>
+        // --- 1. CUSTOM CURSOR ---
+        const cursorDot = document.querySelector('.cursor-dot');
+        const cursorOutline = document.querySelector('.cursor-outline');
+        let mouseX = 0, mouseY = 0, outlineX = 0, outlineY = 0;
+
+        window.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX; mouseY = e.clientY;
+            cursorDot.style.left = mouseX + 'px'; cursorDot.style.top = mouseY + 'px';
+        });
+
+        function animateCursor() {
+            outlineX += (mouseX - outlineX) * 0.1;
+            outlineY += (mouseY - outlineY) * 0.1;
+            cursorOutline.style.left = outlineX + 'px';
+            cursorOutline.style.top = outlineY + 'px';
+            requestAnimationFrame(animateCursor);
         }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-    this.dom.revealElements.forEach(el => observer.observe(el));
-  },
+        animateCursor();
 
-  initCounters() {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        const el = entry.target;
-        const target = parseInt(el.getAttribute('data-count'), 10);
-        if (isNaN(target)) return;
-        if (this.state.prefersReducedMotion) {
-          el.textContent = target.toLocaleString('sw-TZ');
-          observer.unobserve(el);
-          return;
+        document.querySelectorAll('a, button, .tilt-card').forEach(el => {
+            el.addEventListener('mouseover', () => cursorOutline.classList.add('hover-grow'));
+            el.addEventListener('mouseout', () => cursorOutline.classList.remove('hover-grow'));
+        });
+
+        // --- 2. NEURAL NETWORK CANVAS ---
+        const canvas = document.getElementById('neural-canvas');
+        const ctx = canvas.getContext('2d');
+        let w, h, particles;
+
+        function resizeCanvas() {
+            w = canvas.width = window.innerWidth;
+            h = canvas.height = window.innerHeight;
         }
-        let current = 0;
-        const duration = 1200;
-        const startTime = performance.now();
-        const update = (now) => {
-          const elapsed = now - startTime;
-          const progress = Math.min(elapsed / duration, 1);
-          const eased = 1 - Math.pow(1 - progress, 4);
-          current = Math.floor(eased * target);
-          el.textContent = current.toLocaleString('sw-TZ');
-          if (progress < 1) requestAnimationFrame(update);
-          else el.textContent = target.toLocaleString('sw-TZ');
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        class Particle {
+            constructor() { this.reset(); }
+            reset() {
+                this.x = Math.random() * w;
+                this.y = Math.random() * h;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.radius = Math.max(0.5, Math.random() * 2);
+            }
+            update() {
+                this.x += this.vx; this.y += this.vy;
+                if (this.x < 0 || this.x > w) this.vx *= -1;
+                if (this.y < 0 || this.y > h) this.vy *= -1;
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(212, 175, 55, 0.8)';
+                ctx.shadowColor = 'rgba(212, 175, 55, 1)';
+                ctx.shadowBlur = 5;
+                ctx.fill();
+                ctx.closePath();
+            }
+        }
+
+        function initNeuralNetwork() {
+            particles = [];
+            const count = Math.min(80, Math.floor(w / 20));
+            for (let i = 0; i < count; i++) particles.push(new Particle());
+            animateNetwork();
+        }
+
+        function animateNetwork() {
+            ctx.clearRect(0, 0, w, h);
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 120) {
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.strokeStyle = `rgba(212, 175, 55, ${0.2 * (1 - dist / 120)})`;
+                        ctx.lineWidth = 1;
+                        ctx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(animateNetwork);
+        }
+        initNeuralNetwork();
+
+        // --- 3. SCROLL REVEAL & PROGRESS BAR ---
+        const reveals = document.querySelectorAll('.reveal, .reveal-stagger');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+        }, { threshold: 0.1 });
+        reveals.forEach(reveal => observer.observe(reveal));
+
+        window.onscroll = function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            document.getElementById("progress-bar").style.width = (winScroll / height) * 100 + "%";
         };
-        requestAnimationFrame(update);
-        observer.unobserve(el);
-      });
-    }, { threshold: 0.5 });
-    this.dom.countElements.forEach(el => observer.observe(el));
-  },
 
-  initLightbox() {
-    const { lightbox, lbImg, lbClose } = this.dom;
-    if (!lightbox || !lbImg) return;
-    let lastFocused = null;
-    const open = (img) => {
-      lastFocused = document.activeElement;
-      lbImg.src = img.src;
-      lbImg.alt = img.alt;
-      lightbox.setAttribute('open', '');
-      lightbox.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-      setTimeout(() => lbClose?.focus(), 100);
-    };
-    const close = () => {
-      lightbox.removeAttribute('open');
-      lightbox.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
-      if (lastFocused) lastFocused.focus();
-    };
-    this.dom.galleryItems.forEach(item => {
-      const img = item.querySelector('img');
-      if (!img) return;
-      const activate = () => open(img);
-      item.addEventListener('click', activate);
-      item.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(); }
-      });
-    });
-    lbClose?.addEventListener('click', close);
-    lightbox.addEventListener('click', (e) => { if (e.target === lightbox) close(); });
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && lightbox.hasAttribute('open')) close();
-    });
-  },
+        // --- 4. 3D TILT CARDS ---
+        document.querySelectorAll('.tilt-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const rotateX = ((y / rect.height) - 0.5) * -10;
+                const rotateY = ((x / rect.width) - 0.5) * 10;
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+            });
+            card.addEventListener('mouseleave', () => card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)');
+        });
 
-  initForm() {
-    const { contactForm, formStatus } = this.dom;
-    if (!contactForm) return;
-    contactForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const btn = contactForm.querySelector('button[type="submit"]');
-      const originalHTML = btn.innerHTML;
-      const name = contactForm.querySelector('#name');
-      const email = contactForm.querySelector('#email');
-      const message = contactForm.querySelector('#message');
-      let isValid = true;
-      [name, email, message].forEach(field => {
-        if (!field.value.trim()) {
-          isValid = false;
-          field.style.borderColor = '#e74c3c';
-          setTimeout(() => field.style.borderColor = '', 2000);
+        // --- 5. COMMAND PALETTE (Ctrl+K) ---
+        function toggleCmdK() {
+            const cmdk = document.getElementById('cmdk');
+            cmdk.classList.toggle('active');
+            if (cmdk.classList.contains('active')) {
+                document.getElementById('cmdk-input').focus();
+            }
         }
-      });
-      if (!isValid) {
-        formStatus.textContent = 'Tafadhali jaza sehemu zote zilizo lazima.';
-        formStatus.className = 'form-status visible error';
-        return;
-      }
-      btn.disabled = true;
-      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin" aria-hidden="true"></i> Inatuma...';
-      formStatus.className = 'form-status';
-      await new Promise(r => setTimeout(r, 1500));
-      btn.innerHTML = '<i class="fa-solid fa-check" aria-hidden="true"></i> Ujumbe Umetumwa!';
-      btn.style.background = 'var(--c-whats-dark)';
-      formStatus.textContent = 'Asante! Ujumbe wako umepokelewa kikamilifu.';
-      formStatus.className = 'form-status visible success';
-      setTimeout(() => {
-        btn.innerHTML = originalHTML;
-        btn.style.background = '';
-        btn.disabled = false;
-        formStatus.className = 'form-status';
-        contactForm.reset();
-      }, 4000);
-    });
-  },
 
-  initTabs() {
-    const tabBtns = document.querySelectorAll('.tab-btn');
-    const worksContent = document.getElementById('works');
-    const researchContent = document.getElementById('research');
-    if (!worksContent || !researchContent) return;
-    tabBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        tabBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const tabName = btn.dataset.tab;
-        worksContent.style.display = tabName === 'works' ? 'block' : 'none';
-        researchContent.style.display = tabName === 'works' ? 'none' : 'block';
-      });
-    });
-  },
+        window.addEventListener('keydown', (e) => {
+            if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
+                e.preventDefault();
+                toggleCmdK();
+            }
+            if (e.key === "Escape") {
+                document.getElementById('cmdk').classList.remove('active');
+            }
+        });
 
-  initMagnetic() {
-    if (this.state.prefersReducedMotion || window.matchMedia('(pointer: coarse)').matches) return;
-    this.dom.magneticElements.forEach(btn => {
-      btn.addEventListener('mousemove', (e) => {
-        const rect = btn.getBoundingClientRect();
-        const x = e.clientX - rect.left - rect.width / 2;
-        const y = e.clientY - rect.top - rect.height / 2;
-        btn.style.transform = `translate(${x * 0.25}px, ${y * 0.25}px)`;
-      });
-      btn.addEventListener('mouseleave', () => {
-        btn.style.transform = 'translate(0px, 0px)';
-      });
-    });
-  },
-};
+        // --- 6. ACCORDION FOR HISTORICAL TEXTS ---
+        function toggleAccordion(element) {
+            const item = element.closest('.accordion-item');
+            const isOpen = item.classList.contains('open');
+            
+            // Close all other open accordions
+            document.querySelectorAll('.accordion-item.open').forEach(openItem => {
+                openItem.classList.remove('open');
+                openItem.querySelector('.accordion-icon').classList.replace('fa-minus', 'fa-plus');
+            });
 
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', () => ARCHIVE.init());
-} else {
-  ARCHIVE.init();
-}
-</script>
+            // Toggle current one
+            if (!isOpen) {
+                item.classList.add('open');
+                element.querySelector('.accordion-icon').classList.replace('fa-plus', 'fa-minus');
+            }
+        }
+    </script>
 </body>
 </html>
